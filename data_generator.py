@@ -1,6 +1,7 @@
 import pandas as pd
 import datetime
 import random
+from geopy.geocoders import Nominatim
 
 #no_lines = input('Enter desired number of lines: ')
 no_lines = '9'
@@ -68,7 +69,39 @@ for i in range(len(dg_df)):
 
 dg_df['fmip'] = ipv4_fmip_list
 
+# ============= Latitude Longitude
+geolocator = Nominatim()
+#location = geolocator.geocode("175 5th Avenue NYC")
 
+loc_list = []
+for i in range(len(dg_df)):
+	while True:
+		r_lat = round(random.uniform(-90.0, 90.0),6)
+		r_long = round(random.uniform(-180.0, 180.0),6)
+		location = geolocator.reverse(f"{r_lat}, {r_long}", timeout=None)
+
+		if location.address == None:
+			continue
+
+		if location.address != None:
+			loc_list.append(location.address.encode('utf-8').strip())
+			print(location.address.encode('utf-8').strip())
+
+		if len(loc_list) == 10:
+			break
+
+
+
+'''
+	if location.address == None:
+		print('Recalibrating...')
+		r_lat = round(random.uniform(-90.0, 90.0),6)
+		r_long = round(random.uniform(-180.0, 180.0),6)
+		location = geolocator.reverse(f"{r_lat}, {r_long}", timeout=None)
+		continue
+	else:
+		print(location.address.encode('utf-8').strip())
+'''
 
 
 
