@@ -52,3 +52,23 @@ for i in range(len(dg_df)):
 
 dg_df['email_address'] = dg_df.fname.astype(str).str[0] + dg_df.lname + '@' + email_list
 
+# =========== IP Addresses
+
+# ===== toip
+ipv4_toip_list = []
+for i in range(len(dg_df)):
+	ipv4_toip_list.append(str(random.randint(0,255)) + '.' + str(random.randint(0,255)) + '.' + str(random.randint(0,255)) + '.' + str(random.randint(0,255)))
+
+dg_df['toip'] = ipv4_toip_list
+
+# ===== fmip
+ipv4_fmip_list = []
+for i in range(len(dg_df)):
+	ipv4_fmip_list.append(str(random.randint(0,255)) + '.' + str(random.randint(0,255)) + '.' + str(random.randint(0,255)) + '.' + str(random.randint(0,255)))
+
+dg_df['fmip'] = ipv4_fmip_list
+
+
+
+
+
