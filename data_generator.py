@@ -2,6 +2,8 @@ import pandas as pd
 import datetime
 import random
 from geopy.geocoders import Nominatim
+import time
+import sys
 
 #no_lines = input('Enter desired number of lines: ')
 no_lines = '9'
@@ -39,10 +41,16 @@ def random_date(start, end):
 date_list = []
 for i in range(int(no_lines)):
 	date_list.append(random_date(start_datetime, end_datetime))
+pd.set_option('display.float_format', lambda x: '%.3f' % x)
 
 dg_df['date_time'] = sorted(date_list)
 
+unix_list = []
+for i in range(len(dg_df)):
+	unix_list.append(int(time.mktime(dg_df['date_time'][i].timetuple())*1e3 + dg_df['date_time'][i].microsecond/1e3)/1000) # time.mktime(dg_df['date_time'][0].timetuple())
 
+dg_df['unix_time'] = sorted(unix_list)
+# sys.exit(0)
 # ============= Email domains
 email_domains = pd.read_csv('data/free_email_provider_domains.txt', names=['domain'], comment='#')
 
