@@ -117,12 +117,25 @@ if latlong_check == 'no':
 	
 		lat_list.append(r_lat)
 		long_list.append(r_long)
-		
+
 		if len(lat_list) == int(no_lines):
 			break
 	
 dg_df['lat'] = lat_list
 dg_df['long'] = long_list
+
+# =======payload
+payload_list = []
+for i in range(len(dg_df)):
+	payload_list.append(random.randint(0,1000000))
+
+dg_df['payload'] = payload_list
+
+
+
+
+# ======== check if script works
+print(dg_df)
 
 		
 
