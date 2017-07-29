@@ -85,29 +85,48 @@ loc_list = []
 lat_list = []
 long_list = []
 
-while True:
-	r_lat = round(random.uniform(-90.0, 90.0),6)
-	r_long = round(random.uniform(-180.0, 180.0),6)
-	location = geolocator.reverse(f"{r_lat}, {r_long}", language='en', timeout=3) # timeout=None
+latlong_check = input('Check Latitude and Longitude (yes or no): ')
 
+if latlong_check == 'yes':
+	while True:
+		r_lat = round(random.uniform(-90.0, 90.0),6)
+		r_long = round(random.uniform(-180.0, 180.0),6)
+		location = geolocator.reverse(f"{r_lat}, {r_long}", language='en', timeout=3) # timeout=None
+	
+	
+		if location.address == None:
+			continue
+	
+		if location.address != None:
+			loc_list.append(location.address.encode('utf-8').strip()) # .encode('utf-8').strip()) # 'utf-8' # 'ascii', 'ignore'
+			# loc_list.append(location.address.decode('unicode_escape').encode('ascii', 'ignore'))
+			# print(location.address.encode('utf-8').strip())
+			lat_list.append(r_lat)
+			long_list.append(r_long)
+	
+	
+		if len(loc_list) == int(no_lines):
+			break
 
-	if location.address == None:
-		continue
+	dg_df['loc'] = loc_list
 
-	if location.address != None:
-		loc_list.append(location.address.encode('utf-8').strip()) # .encode('utf-8').strip()) # 'utf-8' # 'ascii', 'ignore'
-		# loc_list.append(location.address.decode('unicode_escape').encode('ascii', 'ignore'))
-		# print(location.address.encode('utf-8').strip())
+if latlong_check == 'no':
+	while True:
+		r_lat = round(random.uniform(-90.0, 90.0),6)
+		r_long = round(random.uniform(-180.0, 180.0),6)
+	
 		lat_list.append(r_lat)
 		long_list.append(r_long)
-
-
-	if len(loc_list) == int(no_lines):
-		break
-
+		
+		if len(lat_list) == int(no_lines):
+			break
+	
 dg_df['lat'] = lat_list
 dg_df['long'] = long_list
-dg_df['loc'] = loc_list
+
+		
+
+
 
 '''
 	if location.address == None:
