@@ -26,7 +26,7 @@
     - [x] datetime (7/29/2017)
       - [x] UNIXTime (7/29/2017)
       - [ ] Julian Day
-      - [ ] Day of year
+      - [x] Day of year (7/30/2017)
       - [ ] Different date sequence Y-D-M
     - [x] names (7/29/2017)
       - [x] load names from file (7/29/2017)
@@ -59,7 +59,7 @@
 # Current Errors and Pressing Tasks
 
 ### Output to SQL
-- Create a connection and execute procedures from the pandas dataframe to sql. The function from the dataframe will be .to_sql, but requires a connection method. Just specifying an output name does not suffice as in the .to_csv function.
+- Create a connection and execute procedures from the pandas dataframe to sql. The function from the dataframe will be .to_sql, but requires a connection method. Just specifying an output name does not suffice as in the .to_csv function.  
 ```TypeError: to_sql() missing 1 required positional argument: 'con'```
 
 
