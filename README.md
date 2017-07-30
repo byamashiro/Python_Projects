@@ -43,7 +43,7 @@
         - [ ] pickle
         - [x] csv (7/29/2017)
         - [ ] cdf
-        - [ ] ascii
+        - [x] ascii (delimited by a tab)
         
 
 - [ ] Input statements
@@ -58,8 +58,9 @@
 
 # Current Errors and Pressing Tasks
 
-### Set up dataframe for Data Generator
--Start with a DataFrame with a preset amount of columns and rows.
+### Output to SQL
+- Create a connection and execute procedures from the pandas dataframe to sql. The function from the dataframe will be .to_sql, but requires a connection method. Just specifying an output name does not suffice as in the .to_csv function.
+```TypeError: to_sql() missing 1 required positional argument: 'con'```
 
 
 

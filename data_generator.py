@@ -85,7 +85,7 @@ loc_list = []
 lat_list = []
 long_list = []
 
-latlong_check = input('Check Latitude and Longitude (yes or no): ')
+latlong_check = input('Check Latitude and Longitude (yes or no) - use "no" for time saving: ')
 
 if latlong_check == 'yes':
 	while True:
@@ -134,16 +134,58 @@ dg_df['payload'] = payload_list
 
 
 # ======= OUTPUT
-print(f'{"="*40}\n{"=" + "Output Options".center(38," ") + "="}\n{"="*40}\n1 - .csv\n2 - .txt\n3 - .sql\n4 - .JSON\n5 - pickle\n{"="*40}')
+print(f'{"="*40}\n{"=" + "Output Options".center(38," ") + "="}\n{"="*40}\n1 - .csv\n2 - .txt\n3 - .JSON\n4 - .pickle\n5 - .sql\n{"="*40}')
 
-output_option = input('Pick an output option (1-5): ')
+
+option_bin_set = set()
+while True: # energy_bin != 'done':
+	option_bin = input('Enter Output Option then "done" or "all": ').lower()
+	if option_bin != 'done':
+		if option_bin == 'all':
+			option_bin_set.add('1')
+			option_bin_set.add('2')
+			option_bin_set.add('3')
+			option_bin_set.add('4')
+			option_bin_set.add('5')
+			break
+		
+		elif int(option_bin) < 6:
+			option_bin_set.add(option_bin)
+
+			if len(option_bin_set) > 5:
+				print('SELECTION ERROR: Only 4 datasets are allowed per canvas.')
+				sys.exit(0)
+
+	elif option_bin == 'done':
+		break
+
 output_name = 'test'
 
 
 # ======= output to csv
-if output_option == '1':
-	delim_opt = input('Choose delimiter character: ')
-	dg_df.to_csv(f'{output_name}.csv', sep=f'{delim_opt}', index=False)
+if '1' in option_bin_set:
+	delim_opt = input('Choose delimiter character for .csv output: ')
+	dg_df.to_csv(f'output/{output_name}.csv', sep=f'{delim_opt}', index=False)
+
+# ======= output to ascii
+if '2' in option_bin_set:
+	#delim_opt = input('Choose delimiter character: ')
+	dg_df.to_csv(f'output/{output_name}.txt', sep='\t', index=False)
+
+# ======= output to json
+if '3' in option_bin_set:
+	#delim_opt = input('Choose delimiter character: ')
+	dg_df.to_json(f'output/{output_name}.JSON', index=False)
+
+# ======= output to pickle
+if '4' in option_bin_set:
+	#delim_opt = input('Choose delimiter character: ')
+	dg_df.to_picle(f'output/{output_name}.pickle', index=False)
+
+# ======= output to SQL
+if '5' in option_bin_set:
+	#delim_opt = input('Choose delimiter character: ')
+	dg_df.to_sql(f'output/{output_name}.sql', index=False)
 
 
 
