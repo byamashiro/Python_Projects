@@ -21,6 +21,7 @@
 
 - [ ] Set up and decide on modules for data generator
 
+
 - [ ] Random data
     - [x] datetime (7/29/2017)
       - [x] UNIXTime (7/29/2017)
@@ -28,10 +29,12 @@
       - [ ] Day of year
       - [ ] Different date sequence Y-D-M
     - [x] names (7/29/2017)
+      - [x] load names from file (7/29/2017)
     - [x] emails (7/29/2017)
     - [x] payload (7/29/2017)
     - [x] latitude/longitude (7/29/2017)
       - [x] latitude/longitude checker (7/29/2017)
+
 
 - [ ] Push data into pandas DataFrame
     - [ ] Output data in different formats
@@ -63,59 +66,42 @@
 # Projects
 
 ## Data Generator (DG)
-Python script that generates data with specified parameters.
 
-### Data
-#### Name
-- Load from a file 'names.txt' and push into a list/set of full string.
-#### emails
-- First initial of first name, followed by last name '@' host '.' com/edu/gov/etc.
-#### from/to ip
-- Sequence of integers separated by '.', usually in the format (##.###.###.###).
-#### latitude/longitude
-- Formatted float followed by a decimal of latitude (-90 to 90 degrees) and longitude (-180 to 180).
-#### datetime
-- Common string yyyy-mm-dd hh:mm:ss.s and convert using datetime functions.
-#### payload
-- A random integer from 0-1000000.
+Columns       | Format | Notes
+------------ | ------------- | -------------
+**names**     | random string |  Load from a file 'names.txt' and push into a list/set of full string.
+**emails**    | random string with @host.com | First initial of first name, followed by last name '@' host '.' com/edu/gov/etc.
+**from ip**   | formatted sequence with '.' (i.e ##.###.###.###) | Sequence of integers separated by '.', usually in the format (##.###.###.###).
+**to ip**     | formatted sequence with '.' (i.e ##.###.###.###) | Sequence of integers separated by '.', usually in the format (##.###.###.###).
+**latitude**  | formatted float, 1-round from (0-360) | Formatted float followed by a decimal of latitude (-90 to 90 degrees) and longitude (-180 to 180).
+**longitude** | formatted float, 1-round from (0-360) | Formatted float followed by a decimal of latitude (-90 to 90 degrees) and longitude (-180 to 180).
+**datetime**  | datetime | Common string yyyy-mm-dd hh:mm:ss.s and convert using datetime functions.
+**payload**| random integer                | A random integer from 0-1000000.
+** **| -                | -           | -
+** **| -                | -           | -
 
-### Input Statements
-#### Corruption
+### Corruption
 - Values that are 'bad' (i.e -99999, null, nan, -1E30)
 - Push to random spots in column and whole DataFrame
 - Set up extent of corruption (i.e harsh (70% of data), light (20% of data))
 
 
 
-Columns       | Format
------------- | ------------- 
-**names**     | random string
-**emails**    | random string with @host.com
-**from ip**   | formatted sequence with '.' (i.e ##.###.###.###)
-**to ip**     | formatted sequence with '.' (i.e ##.###.###.###)
-**latitude**  | formatted float, 1-round from (0-360)
-**longitude** | formatted float, 1-round from (0-360)
-**datetime**  | datetime
-**payload**| -                | -           | -
-** **| -                | -           | -
-** **| -                | -           | -
-
-
-
-
 # Required Python Modules
 Module       | Submodule(s) | as | Uses
 ------------ | ------------- | ------------- | -------------
-**pandas**       | -                | pd          | DataFrames, indexing, plotting, downloading http url data, csv_reader()
-**numpy**        | -                | np          | NaN values
-**spacepy**      | pycdf            | -           |  Reading Common Data Format
-**urllib**       | error            | -           | For HTTPError recognition
-**random**       | -                | -           | Randomizer for random colors
-**matplotlib**   | .pyplot, .mdates | plt, mdates | Plotting, subplots, date formatting
-**datetime**     | -                | -           | Datetime indexing, datetime strings, datetime conversion from strings
-**sys**          | -                | -           | Exiting script
-**wget**         | -                | -           | Downloading files online (.cdf, .csv, .ascii, .txt)
-**os**           | -                | -           | Remove files through script
+**pandas**              | -                | pd          | DataFrames, indexing, plotting, downloading http url data, csv_reader()
+**numpy**               | -                | np          | NaN values
+**spacepy**             | pycdf            | -           |  Reading Common Data Format
+**urllib**              | error            | -           | For HTTPError recognition
+**random**              | -                | -           | Randomizer for random colors
+**matplotlib**          | .pyplot, .mdates | plt, mdates | Plotting, subplots, date formatting
+**datetime**            | -                | -           | Datetime indexing, datetime strings, datetime conversion from strings
+**sys**                 | -                | -           | Exiting script
+**wget**                | -                | -           | Downloading files online (.cdf, .csv, .ascii, .txt)
+**os**                  | -                | -           | Remove files through script
+**geopy.geocoders**     | Nominatim        | -           | Enables realtime verification of given latitudes and longitudes
+
 
 
 # Running Scripts
