@@ -45,11 +45,23 @@ pd.set_option('display.float_format', lambda x: '%.3f' % x)
 
 dg_df['date_time'] = sorted(date_list)
 
+
+
 unix_list = []
 for i in range(len(dg_df)):
 	unix_list.append(int(time.mktime(dg_df['date_time'][i].timetuple())*1e3 + dg_df['date_time'][i].microsecond/1e3)/1000) # time.mktime(dg_df['date_time'][0].timetuple())
 
 dg_df['unix_time'] = sorted(unix_list)
+
+
+
+doy_list = []
+for i in range(len(dg_df)):
+	doy_list.append((dg_df['date_time'][i].timetuple()).tm_yday)
+
+dg_df['doy'] = sorted(doy_list)
+	
+
 # sys.exit(0)
 # ============= Email domains
 email_domains = pd.read_csv('data/free_email_provider_domains.txt', names=['domain'], comment='#')
@@ -158,6 +170,11 @@ while True: # energy_bin != 'done':
 
 	elif option_bin == 'done':
 		break
+
+	elif option_bin == 'none':
+		print('No outputs generated.')
+		break
+
 
 output_name = 'test'
 
