@@ -22,14 +22,30 @@
 - [ ] Set up and decide on modules for data generator
 
 - [ ] Random data
-    - [ ] datetime, names, emails, etc. (see columns)
+    - [x] datetime (7/29/2017)
+      - [x] UNIXTime (7/29/2017)
+      - [ ] Julian Day
+      - [ ] Day of year
+      - [ ] Different date sequence Y-D-M
+    - [x] names (7/29/2017)
+    - [x] emails (7/29/2017)
+    - [x] payload (7/29/2017)
+    - [x] latitude/longitude (7/29/2017)
+      - [x] latitude/longitude checker (7/29/2017)
 
 - [ ] Push data into pandas DataFrame
-    - [ ] Output data in different formats (i.e JSON, ascii, xml, pickle, csv, cdf)
+    - [ ] Output data in different formats
+        - [ ] JSON
+        - [ ] xml
+        - [ ] pickle
+        - [x] csv (7/29/2017)
+        - [ ] cdf
+        - [ ] ascii
+        
 
 - [ ] Input statements
     - [ ] Format of data
-        - [ ] Output datetime column in various formats (i.e UNIXTime, UT, Julian Day, Day of year, Different date sequence Y-D-M)
+        - [ ] Output datetime column in various formats
     - [ ] Different delimiters (i.e ;/,/./*&/%!)
 
 - [ ] Add random corruption

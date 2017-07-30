@@ -133,6 +133,19 @@ dg_df['payload'] = payload_list
 
 
 
+# ======= OUTPUT
+print(f'{"="*40}\n{"=" + "Output Options".center(38," ") + "="}\n{"="*40}\n1 - .csv\n2 - .txt\n3 - .sql\n4 - .JSON\n5 - pickle\n{"="*40}')
+
+output_option = input('Pick an output option (1-5): ')
+output_name = 'test'
+
+
+# ======= output to csv
+if output_option == '1':
+	delim_opt = input('Choose delimiter character: ')
+	dg_df.to_csv(f'{output_name}.csv', sep=f'{delim_opt}', index=False)
+
+
 
 # ======== check if script works
 print(dg_df)
