@@ -5,7 +5,7 @@
 - [Current Tasks](#current-tasks)
 - [Current Errors and Pressing Tasks](#current-errors-and-pressing-tasks)
 - [Projects](#projects)
-  -[Data Generator](#data-generator-dg)
+  - [Data Generator](#data-generator-dg)
 - [Required Python Modules](#required-python-modules)
 - [Running Scripts](#running-scripts)
   - [Data Generator Script](#data-generator-data_generator_script)
