@@ -41,7 +41,7 @@
         - [ ] pickle
         - [x] csv (7/29/2017)
         - [ ] cdf
-        - [x] ascii (delimited by a tab)
+        - [x] ascii (delimited by a tab) (7/31/2017)
         
 
 - [ ] Input statements
