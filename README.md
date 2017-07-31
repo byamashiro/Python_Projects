@@ -153,6 +153,7 @@ Choose delimiter character for .csv output: ,
 
 ### Generated Data
 #### Sample Generated DataFrame
+```
 In [39]: dg_df.head(3)  
 Out[39]:   
     fname    lname           date_time      unix_time  doy  \  
@@ -169,6 +170,7 @@ Out[39]:
 0   181288    
 1   437522    
 2   334732   
+```
 
 #### Sample Generated Output Data
 
