@@ -96,17 +96,17 @@ Module       | Submodule(s) | as | Uses
 ------------ | ------------- | ------------- | -------------
 **pandas**              | -                | pd          | DataFrames, indexing, plotting, downloading http url data, csv_reader()
 **numpy**               | -                | np          | NaN values
-**spacepy**             | pycdf            | -           |  Reading Common Data Format
-**urllib**              | error            | -           | For HTTPError recognition
+~~**spacepy**~~             | pycdf            | -           | Reading Common Data Format
+~~**urllib**~~              | error            | -           | For HTTPError recognition
 **random**              | -                | -           | Randomizer for random colors
-**matplotlib**          | .pyplot, .mdates | plt, mdates | Plotting, subplots, date formatting
+~~**matplotlib**~~          | .pyplot, .mdates | plt, mdates | Plotting, subplots, date formatting
 **datetime**            | -                | -           | Datetime indexing, datetime strings, datetime conversion from strings
 **sys**                 | -                | -           | Exiting script
-**wget**                | -                | -           | Downloading files online (.cdf, .csv, .ascii, .txt)
-**os**                  | -                | -           | Remove files through script
+~~**wget**~~                | -                | -           | Downloading files online (.cdf, .csv, .ascii, .txt)
+~~**os**~~                  | -                | -           | Remove files through script
 **geopy.geocoders**     | Nominatim        | -           | Enables realtime verification of given latitudes and longitudes
 
-
+\* Strike through modules are currently not in use in the current version of the script, but will later be implemented.
 
 # Running Scripts
 
