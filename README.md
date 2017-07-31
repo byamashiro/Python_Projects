@@ -7,11 +7,8 @@
 - [Projects](#projects)
 - [Required Python Modules](#required-python-modules)
 - [Running Scripts](#running-scripts)
+  - [Data Generator](#data-generator-data_generator_script)
 - [Deprecated Scripts](#deprecated-scripts)
-- [Data](#data)
-  - [Data Caveats](#data-caveats)
-  - [Data Originals](#data-originals)
-  - [Sample Data](#sample-data)
 - [Completed Tasks](#completed-tasks)
 - [Resolved Errors](#resolved-errors)
 
@@ -49,11 +46,14 @@
 - [ ] Input statements
     - [ ] Format of data
         - [ ] Output datetime column in various formats
-    - [ ] Different delimiters (i.e ;/,/./*&/%!)
+    - [x] Different delimiters (i.e ;/,/./*&/%!) (7/31/2017)
 
 - [ ] Add random corruption
     - [ ] Column-wise
     - [ ] DataFrame-wise
+
+- [ ] Statements to break script
+    - [ ] Inputs that will trigger errors
 
 
 # Current Errors and Pressing Tasks
@@ -61,6 +61,9 @@
 ### Output to SQL
 - Create a connection and execute procedures from the pandas dataframe to sql. The function from the dataframe will be .to_sql, but requires a connection method. Just specifying an output name does not suffice as in the .to_csv function.  
 ```TypeError: to_sql() missing 1 required positional argument: 'con'```
+
+### Adding corruption
+- Specific amount of corruption will be specified with an input statement. A total amount of elements within the frame will be calculated and a random percentage will be replaced with corrupted values. Functions should include 1) find number of elements, 2) randomize element location/index, 3) find and replace element values.
 
 
 
@@ -169,31 +172,9 @@ Leatha  Haran 2011-04-03 14:29:16 1301876956.0  92  LHaran@mail2liberia.com 27.1
 
 
 # Deprecated Scripts
-Deprecated [scripts](https://github.com/byamashiro/Research_Projects/tree/master/Scripts/deprecated_scripts) are kept for reference. All scripts are working, but most do not incorporate online data fetching.
  
-
-# Data
-The data consists of mainly flux data from instruments on the ground, Earth orbit, and at the L1 Lagrange point. The data includes a sample from (2012 March), not normalized, and complete in intervals of about 30 seconds to a minute. Data values that were not accepted are denoted at extreme negative values around -9999. The specifics of each data set is commented in each header.
-
-### Data Caveats
-Corrupted data is labeled as -99999.0, and 0.0 flux is most probable to be corrupted as well. Corrupted data is changed using the pandas replace function to np.nan.
-
-### Data Originals
-GOES-13 Proton Flux  
-GOES-15 Xray Flux  
-ACE Magnetic Field Components  
-ACE Solar Wind Parameters  
-OULU Neutron Monitor Data  
-
-### Sample Data
-
 
 # Completed Tasks
 
 # Resolved Errors
-
-### Dynamic subplots and modifications to the Omni script (7/15/2017)
-* **Resolution**: Set up a global variable to initialize a dynamic variable that would allow for slicing with a defined set. To make this work, the .axes slicing method was invoked, but required an overhaul on the plot function for each dataset (i.e. every plot function needed to be the same, with only the global index changing). Using the .axes slices allowed for subplots, but in turn, .plt functions did not edit all subplots. The .plt functions only edit the final added subplot, therefore changes must be added right after the plot function for each subplot using the .axes methods.
-- Devise a way to plot selected datasets on subplots. The script runs with all data is loaded, but breaks with selections. Although the script is dynamic, there currently must be a static plot to host the first plot, and then subplots are appended to that "anchor" plot. Therefore, if the static anchor dataset is not chosen, the script cannot build on an empty canvas. The optimal solution seems to be unpacking different subplots (i.e. fig, (ax1, ax2, ...)). This solution requires that ax1, etc. must be literals and not strings, which removes options such as "for" loops with a list. An idea was to force a string to be a variable name, but this option should not be used if possible. A lambda function was also considered, but wildcard logic doesn't seem optimal for data frames while calling .index and columnized data.
-- Minor tick gridlines for y-axis should be added with minorticks on. Add legends for each subplot and y-axis labels with units. but also reduce size of the legend and y-axis labels. Neutron monitor data seems to be cut off past the ~23 hour mark, include the rest of that data. Insert an "if" statement to deter plotting of neutron monitor data (long-term changes) and type III radio burst data (short-term changes) on the same canvas. 
 
