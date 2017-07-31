@@ -9,6 +9,7 @@
 - [Required Python Modules](#required-python-modules)
 - [Running Scripts](#running-scripts)
   - [Data Generator Script](#data-generator-data_generator_script)
+    - [Generated Data](#generated-data)
 - [Deprecated Scripts](#deprecated-scripts)
 - [Completed Tasks](#completed-tasks)
 - [Resolved Errors](#resolved-errors)
@@ -112,7 +113,7 @@ Module       | Submodule(s) | as | Uses
 
 # Running Scripts
 
-### Data Generator ([data_generator_script](https://github.com/byamashiro/Python_Projects/blob/master/data_generator.py))
+## Data Generator ([data_generator_script](https://github.com/byamashiro/Python_Projects/blob/master/data_generator.py))
 
 In [31]: run data_generator.py  
 \========================================  
@@ -148,7 +149,28 @@ Choose delimiter character for .csv output: ,
 [x] Output as TXT generated.
 
 
-#### Sample Generated Data
+
+
+### Generated Data
+#### Sample Generated DataFrame
+In [39]: dg_df.head(3)  
+Out[39]:   
+    fname    lname           date_time      unix_time  doy  \  
+0   Vonda  Bossart 2011-03-14 11:06:23 1300136783.000    3     
+1    Sade    Polan 2011-04-02 19:13:04 1301807584.000   73     
+2  Leatha    Haran 2011-04-03 14:29:16 1301876956.000   92     
+  
+             email_address           toip            fmip     lat     long  \  
+0  VBossart@mail2chuck.com   78.69.169.59  168.163.120.28 -50.800 -158.216     
+1        SPolan@timein.net  230.19.28.105    240.53.187.8 -77.462  -75.204     
+2  LHaran@mail2liberia.com  27.107.202.74  13.218.216.247 -64.363  168.564     
+  
+   payload    
+0   181288    
+1   437522    
+2   334732   
+
+#### Sample Generated Output Data
 
 fname | lname | date_time | unix_time | doy | email_address | toip |  fmip |  lat | long |  payload
 ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ----
