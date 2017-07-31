@@ -72,18 +72,19 @@
 
 ## Data Generator (DG)
 
-Columns       | Format | Notes
------------- | ------------- | -------------
-**names**     | random string |  Load from a file 'names.txt' and push into a list/set of full string.
-**emails**    | random string with @host.com | First initial of first name, followed by last name '@' host '.' com/edu/gov/etc.
-**from ip**   | formatted sequence with '.' (i.e ##.###.###.###) | Sequence of integers separated by '.', usually in the format (##.###.###.###).
-**to ip**     | formatted sequence with '.' (i.e ##.###.###.###) | Sequence of integers separated by '.', usually in the format (##.###.###.###).
-**latitude**  | formatted float, 1-round from (0-360) | Formatted float followed by a decimal of latitude (-90 to 90 degrees) and longitude (-180 to 180).
-**longitude** | formatted float, 1-round from (0-360) | Formatted float followed by a decimal of latitude (-90 to 90 degrees) and longitude (-180 to 180).
-**datetime**  | datetime | Common string yyyy-mm-dd hh:mm:ss.s and convert using datetime functions.
-**payload**| random integer                | A random integer from 0-1000000.
-** **| -                | -           | -
-** **| -                | -           | -
+Columns         |   DataFrame Column Name  | Format | Notes
+------------    |   ------------ | ------------- | -------------
+**names**       |   fname, lname  | random string |  Load from a file 'names.txt' and push into a list/set of full string.
+**emails**      |   email_address | random string with @host.com | First initial of first name, followed by last name '@' host '.' com/edu/gov/etc.
+**from ip**     |   fmip          | formatted sequence with '.' (i.e ##.###.###.###) | Sequence of integers separated by '.', usually in the format (##.###.###.###).
+**to ip**       |   toip          | formatted sequence with '.' (i.e ##.###.###.###) | Sequence of integers separated by '.', usually in the format (##.###.###.###).
+**latitude**    |   lat           | formatted float, 1-round from (0-360) | Formatted float followed by a decimal of latitude (-90 to 90 degrees) and longitude (-180 to 180).
+**longitude**   |   long          | formatted float, 1-round from (0-360) | Formatted float followed by a decimal of latitude (-90 to 90 degrees) and longitude (-180 to 180).
+**datetime**    |   date_time     | datetime | Common string yyyy-mm-dd hh:mm:ss.s and convert using datetime functions.
+**payload**     |   payload       | random integer                | A random integer from 0-1000000.
+**day of year** |   doy           | integer following datetime format    | Integer of a day with respect to a specified year
+**unix time**   |   unix_time     | float following datetime format    |  Epoch time of number of seconds since January 1, 1970
+
 
 #### Corruption
 - Values that are 'bad' (i.e -99999, null, nan, -1E30)
