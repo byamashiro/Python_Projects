@@ -4,18 +4,35 @@ import random
 from geopy.geocoders import Nominatim
 import time
 import sys
+import numpy as np
 
 #no_lines = input('Enter desired number of lines: ')
-no_lines = '9'
+no_lines = '20'
 
 #dg_df = pd.DataFrame([])
 
 
 # ============= Name Column
-headers = ['fname', 'lname']
-dg_df = pd.read_csv('data/names.txt', names=headers, sep=' ')
+#headers = ['fname', 'lname']
+#dg_df = pd.read_csv('data/names.txt', names=headers, sep=' ')
+
+dg_df = pd.DataFrame([])
+
+first_name = pd.read_csv('data/CSV_Database_of_First_Names.csv', header=0, index_col=False)
+last_name = pd.read_csv('data/CSV_Database_of_Last_Names.csv', header=0, index_col=False)
+
+#dg_df['fname'] = first_name['firstname'].sample(n=int(no_lines))
+#dg_df['lname'] = last_name['lastname'].sample(n=int(no_lines))
+#dg_df.reset_index(drop=True)
+
+dg_df['fname'] = np.random.choice(first_name['firstname'], int(no_lines))
+dg_df['lname'] = np.random.choice(last_name['lastname'], int(no_lines))
 
 
+
+
+
+#sys.exit(0)
 # =============  Datetime Column
 ''' # Uncomment when program is complete
 start_date = input('Enter a start date (yyyymmdd): ')
