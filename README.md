@@ -5,9 +5,10 @@
 - [Current Tasks](#current-tasks)
 - [Current Errors and Pressing Tasks](#current-errors-and-pressing-tasks)
 - [Projects](#projects)
+  -[Data Generator](#data-generator-dg)
 - [Required Python Modules](#required-python-modules)
 - [Running Scripts](#running-scripts)
-  - [Data Generator](#data-generator-data_generator_script)
+  - [Data Generator Script](#data-generator-data_generator_script)
 - [Deprecated Scripts](#deprecated-scripts)
 - [Completed Tasks](#completed-tasks)
 - [Resolved Errors](#resolved-errors)
@@ -84,14 +85,14 @@ Columns       | Format | Notes
 ** **| -                | -           | -
 ** **| -                | -           | -
 
-### Corruption
+#### Corruption
 - Values that are 'bad' (i.e -99999, null, nan, -1E30)
 - Push to random spots in column and whole DataFrame
 - Set up extent of corruption (i.e harsh (70% of data), light (20% of data))
 
 
 
-# Required Python Modules
+### Required Python Modules
 Module       | Submodule(s) | as | Uses
 ------------ | ------------- | ------------- | -------------
 **pandas**              | -                | pd          | DataFrames, indexing, plotting, downloading http url data, csv_reader()
@@ -147,6 +148,13 @@ Choose delimiter character for .csv output: ,
 
 
 #### Sample Generated Data
+
+fname | lname | date_time | unix_time | doy | email_address | toip |  fmip |  lat | long |  payload
+---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ----
+Vonda  | Bossart | 3/14/11 11:06 | 1300136783 | 3  |   VBossart@mail2chuck.com | 78.69.169.59   | 168.163.120.28 | -50.80011  | -158.215686 | 181288
+Sade   | Polan   | 4/2/11 19:13  | 1301807584 | 73 |   SPolan@timein.net       | 230.19.28.105  | 240.53.187.8   | -77.46244  | -75.203543  | 437522
+Leatha | Haran   | 4/3/11 14:29  | 1301876956 | 92 |   LHaran@mail2liberia.com | 27.107.202.74  | 13.218.216.247 | -64.362629 | 168.564349  | 334732
+
 ##### .csv output
 ```
 fname,lname,date_time,unix_time,doy,email_address,toip,fmip,lat,long,payload  
