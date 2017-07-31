@@ -6,46 +6,45 @@ import time
 import sys
 import numpy as np
 
-#no_lines = input('Enter desired number of lines: ')
-no_lines = '20'
+
+
+# ============== Data generator
+print(f'{"="*40}\n{"=" + "Data Generator".center(38," ") + "="}\n{"="*40}')
+
+no_lines = input('Enter desired number of lines: ')
+#no_lines = '20'
 
 #dg_df = pd.DataFrame([])
 
 
 # ============= Name Column
-#headers = ['fname', 'lname']
+#headers = ['fname', 'lname'] # original names file
 #dg_df = pd.read_csv('data/names.txt', names=headers, sep=' ')
 
 dg_df = pd.DataFrame([])
+print('[x] Data Frame Generated.')
 
 first_name = pd.read_csv('data/CSV_Database_of_First_Names.csv', header=0, index_col=False)
 last_name = pd.read_csv('data/CSV_Database_of_Last_Names.csv', header=0, index_col=False)
 
-#dg_df['fname'] = first_name['firstname'].sample(n=int(no_lines))
-#dg_df['lname'] = last_name['lastname'].sample(n=int(no_lines))
-#dg_df.reset_index(drop=True)
-
 dg_df['fname'] = np.random.choice(first_name['firstname'], int(no_lines))
 dg_df['lname'] = np.random.choice(last_name['lastname'], int(no_lines))
-
-
-
-
+print('[x] Names generated.')
 
 #sys.exit(0)
 # =============  Datetime Column
-''' # Uncomment when program is complete
+# Uncomment when program is complete
 start_date = input('Enter a start date (yyyymmdd): ')
 end_date = input('Enter an end date (yyyymmdd): ')
-start_hour = input('Enter a start hour or "full": ').zfill(2)
-end_hour = input('Enter an end hour or "full": ').zfill(2)
-'''
+start_hour = input('Enter a start hour (hh): ').zfill(2) #  or "full"
+end_hour = input('Enter an end hour (hh): ').zfill(2) #  or "full"
 
+'''
 start_date = '20120307'
 end_date = '20120310'
 start_hour = '00'
 end_hour = '00'
-
+'''
 start_datetime = datetime.datetime( year = int(start_date[0:4]), month = int(start_date[4:6]) , day = int(start_date[6:8]), hour = int(start_hour), minute = 0, second = 0 )
 end_datetime = datetime.datetime( year = int(end_date[0:4]), month = int(end_date[4:6]) , day = int(end_date[6:8]), hour = int(end_hour), minute = 0, second = 0 )
 
@@ -68,7 +67,7 @@ unix_list = []
 for i in range(len(dg_df)):
 	unix_list.append(int(time.mktime(dg_df['date_time'][i].timetuple())*1e3 + dg_df['date_time'][i].microsecond/1e3)/1000) # time.mktime(dg_df['date_time'][0].timetuple())
 
-dg_df['unix_time'] = sorted(unix_list)
+dg_df['unix_time'] = sorted(unix_list) # UNIX time
 
 
 
@@ -76,9 +75,9 @@ doy_list = []
 for i in range(len(dg_df)):
 	doy_list.append((dg_df['date_time'][i].timetuple()).tm_yday)
 
-dg_df['doy'] = sorted(doy_list)
+dg_df['doy'] = sorted(doy_list) # day of year
 	
-
+print('[x] Dates generated.')
 # sys.exit(0)
 # ============= Email domains
 email_domains = pd.read_csv('data/free_email_provider_domains.txt', names=['domain'], comment='#')
@@ -89,7 +88,7 @@ for i in range(len(dg_df)):
 	email_list.append(random.choice(email_address))
 
 dg_df['email_address'] = dg_df.fname.astype(str).str[0] + dg_df.lname + '@' + email_list
-
+print('[x] Email addresses generated.')
 # =========== IP Addresses
 
 # ===== toip
@@ -105,7 +104,7 @@ for i in range(len(dg_df)):
 	ipv4_fmip_list.append(str(random.randint(0,255)) + '.' + str(random.randint(0,255)) + '.' + str(random.randint(0,255)) + '.' + str(random.randint(0,255)))
 
 dg_df['fmip'] = ipv4_fmip_list
-
+print('[x] IP Addresses generated.')
 # ============= Latitude Longitude
 geolocator = Nominatim()
 #location = geolocator.geocode("175 5th Avenue NYC")
@@ -152,6 +151,7 @@ if latlong_check == 'no':
 	
 dg_df['lat'] = lat_list
 dg_df['long'] = long_list
+print('[x] Latitude and longitude generated.')
 
 # =======payload
 payload_list = []
@@ -159,16 +159,16 @@ for i in range(len(dg_df)):
 	payload_list.append(random.randint(0,1000000))
 
 dg_df['payload'] = payload_list
-
+print('[x] Payload generated.')
 
 
 # ======= OUTPUT
-print(f'{"="*40}\n{"=" + "Output Options".center(38," ") + "="}\n{"="*40}\n1 - .csv\n2 - .txt\n3 - .JSON\n4 - .pickle\n5 - .sql\n{"="*40}')
+print(f'{"="*40}\n{"=" + "Output Options".center(38," ") + "="}\n{"="*40}\n1 - .csv\n2 - .txt\n3 - .JSON (currently unavailable)\n4 - .pickle (currently unavailable)\n5 - .sql (currently unavailable)\n{"="*40}')
 
 
 option_bin_set = set()
 while True: # energy_bin != 'done':
-	option_bin = input('Enter Output Option then "done" or "all": ').lower()
+	option_bin = input('Enter Output Option(s) then "done": ').lower() #  or "all"
 	if option_bin != 'done':
 		if option_bin == 'all':
 			option_bin_set.add('1')
@@ -193,19 +193,21 @@ while True: # energy_bin != 'done':
 		break
 
 
-output_name = 'test'
+output_name = 'data_sample'
 
 
 # ======= output to csv
 if '1' in option_bin_set:
 	delim_opt = input('Choose delimiter character for .csv output: ')
-	dg_df.to_csv(f'output/{output_name}.csv', sep=f'{delim_opt}', index=False)
-
+	dg_df.to_csv(f'{output_name}.csv', sep=f'{delim_opt}', index=False) # output/
+	print('[x] Output as CSV generated.')
 # ======= output to ascii
 if '2' in option_bin_set:
 	#delim_opt = input('Choose delimiter character: ')
-	dg_df.to_csv(f'output/{output_name}.txt', sep='\t', index=False)
+	dg_df.to_csv(f'{output_name}.txt', sep='\t', index=False) # output/
+	print('[x] Output as TXT generated.')
 
+# =============================== Current work, code doesn't work past this point
 # ======= output to json
 if '3' in option_bin_set:
 	#delim_opt = input('Choose delimiter character: ')
@@ -224,7 +226,7 @@ if '5' in option_bin_set:
 
 
 # ======== check if script works
-print(dg_df)
+#print(dg_df)
 
 		
 

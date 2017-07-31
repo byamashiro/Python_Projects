@@ -107,9 +107,60 @@ Module       | Submodule(s) | as | Uses
 
 # Running Scripts
 
-### OMNI Space Weather ([omni_script_v2](https://github.com/byamashiro/Research_Projects/blob/master/Scripts/pandas_test_omni.py))
+### Data Generator ([data_generator_script](https://github.com/byamashiro/Python_Projects/blob/master/data_generator.py))
+
+In [31]: run data_generator.py  
+\========================================  
+\=            Data Generator            =  
+\========================================  
+Enter desired number of lines: 30  
+[x] Data Frame Generated.  
+[x] Names generated.  
+Enter a start date (yyyymmdd): 20110307  
+Enter an end date (yyyymmdd): 20120105  
+Enter a start hour (hh): 01  
+Enter an end hour (hh): 20  
+[x] Dates generated.  
+[x] Email addresses generated.  
+[x] IP Addresses generated.  
+Check Latitude and Longitude (yes or no) - use "no" for time saving: no  
+[x] Latitude and longitude generated.  
+[x] Payload generated.  
+\========================================  
+\=            Output Options            =  
+\========================================  
+1 - .csv  
+2 - .txt  
+3 - .JSON (currently unavailable)  
+4 - .pickle (currently unavailable)  
+5 - .sql (currently unavailable)  
+\========================================  
+Enter Output Option(s) then "done": 1  
+Enter Output Option(s) then "done": 2  
+Enter Output Option(s) then "done": done  
+Choose delimiter character for .csv output: ,  
+[x] Output as CSV generated.  
+[x] Output as TXT generated.
 
 
+#### Sample Generated Data
+##### .csv output
+```
+fname,lname,date_time,unix_time,doy,email_address,toip,fmip,lat,long,payload  
+Vonda,Bossart,2011-03-14 11:06:23,1300136783.0,3,VBossart@mail2chuck.com,78.69.169.59,168.163.120.28,-50.80011,-158.215686,181288  
+Sade,Polan,2011-04-02 19:13:04,1301807584.0,73,SPolan@timein.net,230.19.28.105,240.53.187.8,-77.46244,-75.203543,437522  
+Leatha,Haran,2011-04-03 14:29:16,1301876956.0,92,LHaran@mail2liberia.com,27.107.202.74,13.218.216.247,-64.362629,168.564349,334732  
+...
+```
+
+##### .txt output
+```
+fname lname date_time unix_time doy email_address toip  fmip  lat long  payload  
+Vonda Bossart 2011-03-14 11:06:23 1300136783.0  3 VBossart@mail2chuck.com 78.69.169.59  168.163.120.28  -50.80011 -158.215686 181288  
+Sade  Polan 2011-04-02 19:13:04 1301807584.0  73  SPolan@timein.net 230.19.28.105 240.53.187.8  -77.46244 -75.203543  437522  
+Leatha  Haran 2011-04-03 14:29:16 1301876956.0  92  LHaran@mail2liberia.com 27.107.202.74 13.218.216.247  -64.362629  168.564349  334732  
+...
+```
 
 
 [//]: <> <img src="Plots/omni_test.png" width="600">
