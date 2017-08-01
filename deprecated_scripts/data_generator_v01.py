@@ -171,6 +171,66 @@ print('[x] Payload generated.')
 
 
 # ========= Corruption
+''' # begin comment
+corr_option = input('Choose corruption scheme (full (1) or column (2)): ')
+# == full dataframe corruption
+if corr_option == '1':
+	corrupt_perc = input('Enter amount of corruption (0-100%): ')
+	if int(corrupt_perc) > 100 or int(corrupt_perc) < 0:
+		print('PERCENTAGE ERROR: Input a value between 0% and 100%.')
+		sys.exit(0)
+	corr_tot = int(dg_df.size * (int(f'{corrupt_perc}')/100))
+	uncorr_tot = int(dg_df.size) - int(dg_df.size * (int(f'{corrupt_perc}')/100))
+	
+	dg_list_multi = [x for x in dg_df.columns if not 'date_time' in x] # dg_list = list(dg_df.columns)
+	
+	while dg_df.count().sum() >= uncorr_tot+1:
+		#print(dg_df.count().sum())
+		rand_corr = random.choice(dg_list_multi)
+		rand_corr_int = random.randint(0, int(no_lines)-1)
+		if dg_df[f'{rand_corr}'][rand_corr_int] != np.nan:
+			dg_df.replace(dg_df[f'{rand_corr}'][rand_corr_int], value=np.nan, inplace=True)
+	
+	print(f'[x] Full dataframe corruption for {corr_tot}/{dg_df.size} data values generated.')
+
+
+# == column-wise dataframe corruption
+if corr_option == '2':
+	print(list(dg_df.columns))
+
+
+	corr_col = input('Enter column to corrupt: ')
+
+	
+	corrupt_perc = input('Enter amount of corruption (0-100%): ')
+	if int(corrupt_perc) > 100 or int(corrupt_perc) < 0:
+		print('PERCENTAGE ERROR: Input a value between 0% and 100%.')
+		sys.exit(0)
+	
+	corr_tot = int(int(no_lines) * (int(f'{corrupt_perc}')/100))
+	uncorr_tot = int(no_lines) - int(int(no_lines) * (int(f'{corrupt_perc}')/100))
+	
+	while dg_df[f'{corr_col}'].count().sum() >= uncorr_tot+1:
+		#print(dg_df.count().sum())
+		#rand_corr = random.choice(dg_list_multi)
+		rand_corr_int = random.randint(0, int(no_lines)-1)
+		if dg_df[f'{corr_col}'][rand_corr_int] != np.nan:
+			dg_df.replace(dg_df[f'{corr_col}'][rand_corr_int], value=np.nan, inplace=True)
+	
+	print(f'[x] Column-wise dataframe corruption for {corr_tot}/{dg_df.size} data values generated.')
+
+''' # end comment
+
+
+''' # Did not take the unique randomness into account
+for i in range(corr_tot):
+	rand_corr = random.choice(dg_list)
+	rand_corr_int = random.randint(0, int(no_lines)-1)
+	if dg_df[f'{rand_corr}'][rand_corr_int] != -99999.0:
+		dg_df.replace(dg_df[f'{rand_corr}'][rand_corr_int], value=np.nan, inplace=True)
+
+'''
+# ====== all function (testing)
 dg_list_multi = [x for x in dg_df.columns if not 'date_time' in x] # dg_list = list(dg_df.columns)
 print(f'{"="*40}\n{"=" + "Corruption Options".center(38," ") + "="}\n{"="*40}')
 for i in dg_list_multi:
@@ -238,6 +298,20 @@ for i in corr_bin_set:
 		if dg_df[i][rand_corr_int] != np.nan:
 			dg_df.replace(dg_df[i][rand_corr_int], value=np.nan, inplace=True)
 	print(f'[x] {i} : Column-wise corruption for {corr_tot}/{no_lines} data values generated.')
+
+
+'''
+if coor_bin == 'all':
+	while dg_df.count().sum() >= uncorr_tot+1:
+	#print(dg_df.count().sum())
+	rand_corr = random.choice(dg_list_multi)
+	rand_corr_int = random.randint(0, int(no_lines)-1)
+	if dg_df[f'{rand_corr}'][rand_corr_int] != np.nan:
+		dg_df.replace(dg_df[f'{rand_corr}'][rand_corr_int], value=np.nan, inplace=True)
+
+	print(f'[x] Full dataframe corruption for {corr_tot}/{dg_df.size} data values generated.')
+'''
+
 
 
 

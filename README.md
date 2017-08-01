@@ -51,9 +51,6 @@
       - [ ] Output datetime column in various formats
   - [x] Different delimiters (i.e ;/,/./*&/%!) (7/31/2017)
 
-- [ ] Add random corruption
-  - [ ] Column-wise
-  - [ ] DataFrame-wise
 
 - [ ] Statements to break script
   - [ ] Inputs that will trigger errors
@@ -61,7 +58,8 @@
 - [ ] Data corruption generator
   - [x] Percentage of the data frame (7/31/2017)
   - [x] Randomize corruption to entire dataframe (7/31/2017)
-  - [ ] Randomize corruption to a single column
+  - [x] Randomize corruption to a column (8/01/2017)
+  - [ ] Randomize corruption to a row
   - [x] Replace values with nan (7/31/2017)
   - [ ] Replace values with -99999.0
 
@@ -71,11 +69,6 @@
   - [ ] subplot with all preceding plots
 
 # Current Errors and Pressing Tasks
-
-
-
-### Adding corruption
-- Specific amount of corruption will be specified with an input statement. A total amount of elements within the frame will be calculated and a random percentage will be replaced with corrupted values. Functions should include 1) find number of elements, 2) randomize element location/index, 3) find and replace element values.
 
 
 
@@ -129,23 +122,40 @@ Module       | Submodule(s) | as | Uses
 The script reads data from three external data files, located in the [data folder](https://github.com/byamashiro/Python_Projects/tree/master/data). Names are pulled from the [first](https://github.com/byamashiro/Python_Projects/blob/master/data/CSV_Database_of_First_Names.csv) and [last](https://github.com/byamashiro/Python_Projects/blob/master/data/CSV_Database_of_Last_Names.csv) name data files and randomly pushed into the respective name columns. The email address are generated with the first character of the first name, the full last name, and a randomly selected domain name from the [domain data file](https://github.com/byamashiro/Python_Projects/blob/master/data/free_email_provider_domains.txt).  
 
 
-In [20]: **run data_generator.py**  
+In [180]: **run data_generator.py**  
 \========================================  
 \=            Data Generator            =  
 \========================================  
-Enter desired number of lines: 10  
+Enter desired number of lines: 17  
 [x] Data Frame Generated.  
 [x] Names generated.  
 Enter a start date (yyyymmdd): 20110809  
 Enter an end date (yyyymmdd): 20120307  
 Enter a start hour (hh): 01  
-Enter an end hour (hh): 23  
+Enter an end hour (hh): 14  
 [x] Dates generated.  
 [x] Email addresses generated.  
 [x] IP Addresses generated.  
 Check Latitude and Longitude (yes or no) - use "no" for time saving: no  
 [x] Latitude and longitude generated.  
 [x] Payload generated.  
+\========================================  
+\=          Corruption Options          =  
+\========================================  
+fname  
+lname  
+unix_time  
+doy  
+email_address  
+toip  
+fmip  
+lat  
+long  
+payload  
+\========================================  
+Enter Corruption Option(s) then "done" or "all" or "none": all  
+Enter amount of corruption (0-100%): 20  
+[x] Full dataframe corruption for 34/170 data values generated.  
 \========================================  
 \=            Output Options            =  
 \========================================  
@@ -155,12 +165,7 @@ Check Latitude and Longitude (yes or no) - use "no" for time saving: no
 4 - PKL  
 5 - SQL  
 \========================================  
-Enter Output Option(s) then "done": 1    
-Enter Output Option(s) then "done": 2  
-Enter Output Option(s) then "done": 3  
-Enter Output Option(s) then "done": 4  
-Enter Output Option(s) then "done": 5  
-Enter Output Option(s) then "done": done  
+Enter Output Option(s) then "done" or "none": all  
 Choose delimiter character for .csv output: ,  
 [x] Output as CSV generated.  
 [x] Output as TXT generated.  
@@ -192,6 +197,30 @@ Out[39]:
 1   437522    
 2   334732   
 ```
+
+#### Sample Corrupted DataFrame
+```
+In [182]: dg_df.head(3)  
+Out[182]:   
+                       fname    lname      unix_time    doy  \  
+date_time                                                       
+2011-08-27 02:20:18    Kesha      NaN 1314447618.000 11.000     
+2011-09-17 07:34:58   Verdie     Poma 1316280898.000 15.000     
+2011-09-26 04:52:48  Maritza  Dacunto 1317048768.000 15.000     
+
+                          email_address            toip            fmip  \  
+date_time                                                                   
+2011-08-27 02:20:18   KSplane@inwind.it  110.100.100.11             NaN     
+2011-09-17 07:34:58  VPoma@mail2ron.com  118.16.185.205  213.221.43.205     
+2011-09-26 04:52:48                 NaN  152.237.79.112   34.56.181.141     
+  
+                        lat    long    payload    
+date_time                                         
+2011-08-27 02:20:18     nan 128.928 280795.000    
+2011-09-17 07:34:58     nan 148.523 615548.000    
+2011-09-26 04:52:48 -25.044     nan 755488.000   
+```
+
 
 #### Sample Generated Output Data
 
@@ -230,7 +259,14 @@ Leatha  Haran 2011-04-03 14:29:16 1301876956.0  92  LHaran@mail2liberia.com 27.1
 
 # Completed Tasks
 
+
+
 # Resolved Errors
+
+### Adding corruption (8/01/2017)
+* **Resolution**: Instead of two different corruption segments for the entire dataframe and column-wise, both were integrated into one loop.
+- Specific amount of corruption will be specified with an input statement. A total amount of elements within the frame will be calculated and a random percentage will be replaced with corrupted values. Functions should include 1) find number of elements, 2) randomize element location/index, 3) find and replace element values.
+
 ### Output to SQL (7/31/2017)
 * **Resolution**: Connection was created, and the data was saved to a sql database (.db) file.
 - Create a connection and execute procedures from the pandas dataframe to sql. The function from the dataframe will be .to_sql, but requires a connection method. Just specifying an output name does not suffice as in the .to_csv function.  
