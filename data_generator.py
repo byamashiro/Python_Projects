@@ -81,6 +81,7 @@ for i in range(len(dg_df)):
 
 dg_df['doy'] = sorted(doy_list) # day of year
 	
+dg_df.set_index(keys='date_time', inplace=True)
 print('[x] Dates generated.')
 # sys.exit(0)
 # ============= Email domains
@@ -166,14 +167,51 @@ dg_df['payload'] = payload_list
 print('[x] Payload generated.')
 
 
+
+
+
+# ========= Corruption
+corrupt_perc = input('Enter amount of corruption (0-100%): ')
+if int(corrupt_perc) > 100 or int(corrupt_perc) < 0:
+	print('PERCENTAGE ERROR: Input a value between 0% and 100%.')
+	sys.exit(0)
+corr_tot = int(dg_df.size * (int(f'{corrupt_perc}')/100))
+uncorr_tot = int(dg_df.size) - int(dg_df.size * (int(f'{corrupt_perc}')/100))
+
+#print(corr_tot)
+
+
+dg_list = [x for x in dg_df.columns if not 'date_time' in x] # dg_list = list(dg_df.columns)
+
+''' # Did not take the unique randomness into account
+for i in range(corr_tot):
+	rand_corr = random.choice(dg_list)
+	rand_corr_int = random.randint(0, int(no_lines)-1)
+	if dg_df[f'{rand_corr}'][rand_corr_int] != -99999.0:
+		dg_df.replace(dg_df[f'{rand_corr}'][rand_corr_int], value=np.nan, inplace=True)
+
+'''
+
+while dg_df.count().sum() >= uncorr_tot+1:
+	#print(dg_df.count().sum())
+	rand_corr = random.choice(dg_list)
+	rand_corr_int = random.randint(0, int(no_lines)-1)
+	if dg_df[f'{rand_corr}'][rand_corr_int] != -99999.0:
+		dg_df.replace(dg_df[f'{rand_corr}'][rand_corr_int], value=np.nan, inplace=True)
+
+print(f'[x] Corruption for {corr_tot}/{dg_df.size} data values generated.')
 # ======= OUTPUT
 print(f'{"="*40}\n{"=" + "Output Options".center(38," ") + "="}\n{"="*40}\n1 - CSV\n2 - ASCII\n3 - JSON\n4 - PKL\n5 - SQL\n{"="*40}')
 
 
 option_bin_set = set()
 while True: # energy_bin != 'done':
-	option_bin = input('Enter Output Option(s) then "done": ').lower() #  or "all"
-	if option_bin != 'done':
+	option_bin = input('Enter Output Option(s) then "done" or "none": ').lower() #  or "all"
+	if option_bin == 'none':
+		print('No outputs generated.')
+		break
+
+	elif option_bin != 'done':
 		if option_bin == 'all':
 			option_bin_set.add('1')
 			option_bin_set.add('2')
@@ -192,9 +230,9 @@ while True: # energy_bin != 'done':
 	elif option_bin == 'done':
 		break
 
-	elif option_bin == 'none':
-		print('No outputs generated.')
-		break
+	
+	
+	
 
 
 output_name = 'data_sample'
