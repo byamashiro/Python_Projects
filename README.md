@@ -198,6 +198,15 @@ Out[39]:
 2   334732   
 ```
 
+fname | lname | date_time | unix_time | doy | email_address | toip |  fmip |  lat | long |  payload
+---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ----
+Vonda  | Bossart | 3/14/11 11:06 | 1300136783 | 3  |   VBossart@mail2chuck.com | 78.69.169.59   | 168.163.120.28 | -50.80011  | -158.215686 | 181288
+Sade   | Polan   | 4/2/11 19:13  | 1301807584 | 73 |   SPolan@timein.net       | 230.19.28.105  | 240.53.187.8   | -77.46244  | -75.203543  | 437522
+Leatha | Haran   | 4/3/11 14:29  | 1301876956 | 92 |   LHaran@mail2liberia.com | 27.107.202.74  | 13.218.216.247 | -64.362629 | 168.564349  | 334732
+
+
+
+
 #### Sample Corrupted DataFrame
 ```
 In [182]: dg_df.head(3)  
@@ -221,14 +230,14 @@ date_time
 2011-09-26 04:52:48 -25.044     nan 755488.000   
 ```
 
-
-#### Sample Generated Output Data
-
-fname | lname | date_time | unix_time | doy | email_address | toip |  fmip |  lat | long |  payload
+date_time     | fname     | lname       | unix_time  | doy  | email_address             | toip           | fmip           | lat         | long       | payload
 ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ----
-Vonda  | Bossart | 3/14/11 11:06 | 1300136783 | 3  |   VBossart@mail2chuck.com | 78.69.169.59   | 168.163.120.28 | -50.80011  | -158.215686 | 181288
-Sade   | Polan   | 4/2/11 19:13  | 1301807584 | 73 |   SPolan@timein.net       | 230.19.28.105  | 240.53.187.8   | -77.46244  | -75.203543  | 437522
-Leatha | Haran   | 4/3/11 14:29  | 1301876956 | 92 |   LHaran@mail2liberia.com | 27.107.202.74  | 13.218.216.247 | -64.362629 | 168.564349  | 334732
+8/14/11 4:01  | Terrilyn  | Kruszewski  | nan        | 8    | TKruszewski@naz.com       | 255.6.237.201  | 76.228.98.103  | -55.022669  | nan        | 744910
+8/24/11 15:00 | Barton    | Giggey      | 1314234025 | nan  | nan                       | 215.33.124.43  | 7.187.108.26   | 37.999557   | 117.828386 | nan
+8/31/11 20:55 | Dewey     | Hellings    | 1314860105 | nan  | DHellings@emailpinoy.com  | 44.178.193.124 |-24.310369      | 89.248527   | nan        | 208362
+
+
+
 
 ##### .csv output
 ```
@@ -255,7 +264,7 @@ Leatha  Haran 2011-04-03 14:29:16 1301876956.0  92  LHaran@mail2liberia.com 27.1
 
 
 # Deprecated Scripts
- 
+Deprecated [scripts](https://github.com/byamashiro/Python_Projects/tree/master/deprecated_scripts) are kept for reference with comments. All scripts are working, but most do not incorporate changes in future versions.
 
 # Completed Tasks
 

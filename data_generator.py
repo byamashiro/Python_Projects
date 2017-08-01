@@ -282,11 +282,11 @@ output_name = 'data_sample'
 # ======= output to csv
 if '1' in option_bin_set:
 	delim_opt = input('Choose delimiter character for .csv output: ')
-	dg_df.to_csv(f'output/{output_name}.csv', sep=f'{delim_opt}', index=False)
+	dg_df.to_csv(f'output/{output_name}.csv', sep=f'{delim_opt}', index=True)
 	print('[x] Output as CSV generated.')
 # ======= output to ascii
 if '2' in option_bin_set:
-	dg_df.to_csv(f'output/{output_name}.txt', sep='\t', index=False)
+	dg_df.to_csv(f'output/{output_name}.txt', sep='\t', index=True)
 	print('[x] Output as TXT generated.')
 
 # ======= output to json
