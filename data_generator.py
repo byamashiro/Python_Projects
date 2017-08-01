@@ -35,15 +35,19 @@ print('[x] Names generated.')
 # =============  Datetime Column
 # Uncomment when program is complete
 start_date = input('Enter a start date (yyyymmdd): ')
-end_date = input('Enter an end date (yyyymmdd): ')
-start_hour = input('Enter a start hour (hh): ').zfill(2) #  or "full"
-end_hour = input('Enter an end hour (hh): ').zfill(2) #  or "full"
+if start_date == '':
+	start_date = '20120307'
+	end_date = '20120310'
+	start_hour = '00'
+	end_hour = '00'
+
+elif start_date != '':
+	end_date = input('Enter an end date (yyyymmdd): ')
+	start_hour = input('Enter a start hour (hh): ').zfill(2) #  or "full"
+	end_hour = input('Enter an end hour (hh): ').zfill(2) #  or "full"
 
 '''
-start_date = '20120307'
-end_date = '20120310'
-start_hour = '00'
-end_hour = '00'
+
 '''
 start_datetime = datetime.datetime( year = int(start_date[0:4]), month = int(start_date[4:6]) , day = int(start_date[6:8]), hour = int(start_hour), minute = 0, second = 0 )
 end_datetime = datetime.datetime( year = int(end_date[0:4]), month = int(end_date[4:6]) , day = int(end_date[6:8]), hour = int(end_hour), minute = 0, second = 0 )
@@ -163,7 +167,7 @@ print('[x] Payload generated.')
 
 
 # ======= OUTPUT
-print(f'{"="*40}\n{"=" + "Output Options".center(38," ") + "="}\n{"="*40}\n1 - .csv\n2 - .txt\n3 - .JSON (currently unavailable)\n4 - .pickle (currently unavailable)\n5 - .sql (currently unavailable)\n{"="*40}')
+print(f'{"="*40}\n{"=" + "Output Options".center(38," ") + "="}\n{"="*40}\n1 - CSV\n2 - ASCII\n3 - JSON\n4 - PKL\n5 - SQL\n{"="*40}')
 
 
 option_bin_set = set()
@@ -199,36 +203,51 @@ output_name = 'data_sample'
 # ======= output to csv
 if '1' in option_bin_set:
 	delim_opt = input('Choose delimiter character for .csv output: ')
-	dg_df.to_csv(f'{output_name}.csv', sep=f'{delim_opt}', index=False) # output/
+	dg_df.to_csv(f'output/{output_name}.csv', sep=f'{delim_opt}', index=False)
 	print('[x] Output as CSV generated.')
 # ======= output to ascii
 if '2' in option_bin_set:
-	#delim_opt = input('Choose delimiter character: ')
-	dg_df.to_csv(f'{output_name}.txt', sep='\t', index=False) # output/
+	dg_df.to_csv(f'output/{output_name}.txt', sep='\t', index=False)
 	print('[x] Output as TXT generated.')
 
-# =============================== Current work, code doesn't work past this point
 # ======= output to json
 if '3' in option_bin_set:
-	#delim_opt = input('Choose delimiter character: ')
-	dg_df.to_json(f'output/{output_name}.JSON', index=False)
+	dg_df.to_json(f'output/{output_name}.JSON', orient='table')
+	print('[x] Output as JSON generated.')
 
 # ======= output to pickle
 if '4' in option_bin_set:
-	#delim_opt = input('Choose delimiter character: ')
-	dg_df.to_picle(f'output/{output_name}.pickle', index=False)
+	dg_df.to_pickle(f'output/{output_name}.pkl')
+	print('[x] Output as PKL generated.')
 
 # ======= output to SQL
 if '5' in option_bin_set:
 	#delim_opt = input('Choose delimiter character: ')
-	dg_df.to_sql(f'output/{output_name}.sql', index=False)
+	import sqlite3
+	conn = sqlite3.connect('output/data_sample.db')
+	dg_df.to_sql('gen_data', con=conn, if_exists='replace')
+	conn.close()
+	print('[x] Output as SQL generated.')
+
+
+
 
 
 
 # ======== check if script works
 #print(dg_df)
 
-		
+''' test json
+import json
+import pprint as pprint
+with open('data_sample.JSON') as inputfile:
+	json_example = json.load(inputfile)
+	pprint(json_example)
+'''
+''' test sql
+conn = sqlite3.connect('data_gen.db')
+df = pd.read_sql_query('SELECT * FROM gen_data LIMIT 5', conn)	
+'''                                                           		
 
 
 
