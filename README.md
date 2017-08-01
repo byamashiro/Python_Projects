@@ -70,7 +70,8 @@
 
 # Current Errors and Pressing Tasks
 
-
+### Corruption errors when parsing full dataframe
+- When using the corruption for the full dataframe, the day of year and some unix_time timestamps do not correlate with the respective datetime index. 
 
 # Projects
 
