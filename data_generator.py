@@ -5,7 +5,7 @@ from geopy.geocoders import Nominatim
 import time
 import sys
 import numpy as np
-
+import os
 
 
 # ============== Data generator
@@ -32,6 +32,8 @@ dg_df['lname'] = np.random.choice(last_name['lastname'], int(no_lines))
 print('[x] Names generated.')
 
 #sys.exit(0)
+
+
 # =============  Datetime Column
 # Uncomment when program is complete
 start_date = input('Enter a start date (yyyymmdd): ')
@@ -64,7 +66,7 @@ for i in range(int(no_lines)):
 pd.set_option('display.float_format', lambda x: '%.3f' % x)
 
 dg_df['date_time'] = sorted(date_list)
-
+dg_df['dtime'] = dg_df['date_time']
 
 
 unix_list = []
@@ -81,7 +83,7 @@ for i in range(len(dg_df)):
 
 dg_df['doy'] = sorted(doy_list) # day of year
 	
-dg_df.set_index(keys='date_time', inplace=True)
+dg_df.set_index(keys='date_time' , inplace=True)
 print('[x] Dates generated.')
 # sys.exit(0)
 # ============= Email domains
@@ -241,6 +243,7 @@ for i in corr_bin_set:
 
 
 
+
 # ======= OUTPUT
 print(f'{"="*40}\n{"=" + "Output Options".center(38," ") + "="}\n{"="*40}\n1 - CSV\n2 - ASCII\n3 - JSON\n4 - PKL\n5 - SQL\n6 - CDF\n{"="*40}')
 
@@ -283,11 +286,11 @@ output_name = 'data_sample'
 # ======= output to csv
 if '1' in option_bin_set:
 	delim_opt = input('Choose delimiter character for .csv output: ')
-	dg_df.to_csv(f'output/{output_name}.csv', sep=f'{delim_opt}', index=True)
+	dg_df.to_csv(f'output/{output_name}.csv', sep=f'{delim_opt}', index=False)
 	print('[x] Output as CSV generated.')
 # ======= output to ascii
 if '2' in option_bin_set:
-	dg_df.to_csv(f'output/{output_name}.txt', sep='\t', index=True)
+	dg_df.to_csv(f'output/{output_name}.txt', sep='\t', index=False)
 	print('[x] Output as TXT generated.')
 
 # ======= output to json
@@ -313,14 +316,23 @@ if '5' in option_bin_set:
 # ======= output to cdf
 
 if '6' in option_bin_set:
+	os.remove(f'output/{output_name}.cdf')
 	from spacepy import pycdf
+
 
 	cdf = pycdf.CDF(f'output/{output_name}.cdf', '')
 	for i in dg_list_multi:
-		cdf[i] = dg_df[i]
-		cdf.attrs['Author'] = 'Bryan Yamashiro'
-		cdf.attrs['CreateDate'] = datetime.datetime.now()
-		cdf.close()
+		try:
+			cdf[i] = dg_df[i]
+		except ValueError as val_err:
+			print(f'The {i} column was not added to the output CDF file.')
+		else:
+			print(f'The {i} column was not added to the output CDF file.')
+	#cdf['date_time'] = dg_df['dtime']
+
+	cdf.attrs['Author'] = 'Bryan Yamashiro'
+	cdf.attrs['CreateDate'] = datetime.datetime.now()
+	cdf.close()
 
 
 

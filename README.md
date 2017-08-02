@@ -33,17 +33,6 @@
   - [x] payload (7/29/2017)
   - [x] latitude/longitude (7/29/2017)
     - [x] latitude/longitude checker (7/29/2017)
-
-
-- [ ] Push data into pandas DataFrame
-  - [ ] Output data in different formats
-      - [x] JSON (7/31/2017)
-      - ~~[ ] xml~~ (removed due to write issues)
-      - [x] pickle (7/31/2017)
-      - [x] csv (7/29/2017)
-      - [ ] cdf
-      - [x] ascii (delimited by a tab) (7/31/2017)
-      - [x] sql (7/31/2017)
         
 
 - [ ] Input statements
@@ -269,6 +258,15 @@ Deprecated [scripts](https://github.com/byamashiro/Python_Projects/tree/master/d
 
 # Completed Tasks
 
+- [x] Push data into pandas DataFrame (8/02/2017)
+  - [x] Output data in different formats (8/02/2017)
+      - [x] JSON (7/31/2017)
+      - [ ] ~~xml~~ (removed due to write issues)
+      - [x] pickle (7/31/2017)
+      - [x] csv (7/29/2017)
+      - [x] cdf (8/02/2017)
+      - [x] ascii (delimited by a tab) (7/31/2017)
+      - [x] sql (7/31/2017)
 
 
 # Resolved Errors
