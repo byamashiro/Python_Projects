@@ -38,7 +38,7 @@
 - [ ] Push data into pandas DataFrame
   - [ ] Output data in different formats
       - [x] JSON (7/31/2017)
-      - [ ] xml
+      - ~~[ ] xml~~ (removed due to write issues)
       - [x] pickle (7/31/2017)
       - [x] csv (7/29/2017)
       - [ ] cdf

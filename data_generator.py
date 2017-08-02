@@ -242,7 +242,7 @@ for i in corr_bin_set:
 
 
 # ======= OUTPUT
-print(f'{"="*40}\n{"=" + "Output Options".center(38," ") + "="}\n{"="*40}\n1 - CSV\n2 - ASCII\n3 - JSON\n4 - PKL\n5 - SQL\n{"="*40}')
+print(f'{"="*40}\n{"=" + "Output Options".center(38," ") + "="}\n{"="*40}\n1 - CSV\n2 - ASCII\n3 - JSON\n4 - PKL\n5 - SQL\n6 - CDF\n{"="*40}')
 
 
 option_bin_set = set()
@@ -259,12 +259,13 @@ while True: # energy_bin != 'done':
 			option_bin_set.add('3')
 			option_bin_set.add('4')
 			option_bin_set.add('5')
+			option_bin_set.add('6')
 			break
 		
-		elif int(option_bin) < 6:
+		elif int(option_bin) < 7:
 			option_bin_set.add(option_bin)
 
-			if len(option_bin_set) > 5:
+			if len(option_bin_set) > 6:
 				print('SELECTION ERROR: Only 4 datasets are allowed per canvas.')
 				sys.exit(0)
 
@@ -308,6 +309,18 @@ if '5' in option_bin_set:
 	conn.close()
 	print('[x] Output as SQL generated.')
 
+
+# ======= output to cdf
+
+if '6' in option_bin_set:
+	from spacepy import pycdf
+
+	cdf = pycdf.CDF(f'output/{output_name}.cdf', '')
+	for i in dg_list_multi:
+		cdf[i] = dg_df[i]
+		cdf.attrs['Author'] = 'Bryan Yamashiro'
+		cdf.attrs['CreateDate'] = datetime.datetime.now()
+		cdf.close()
 
 
 
