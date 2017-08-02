@@ -84,7 +84,7 @@ for i in range(len(dg_df)):
 dg_df['doy'] = sorted(doy_list) # day of year
 	
 dg_df.set_index(keys='date_time' , inplace=True)
-print('[x] Dates generated.')
+print('[x] Datetimes generated.')
 # sys.exit(0)
 # ============= Email domains
 email_domains = pd.read_csv('data/free_email_provider_domains.txt', names=['domain'], comment='#')
@@ -243,7 +243,24 @@ for i in corr_bin_set:
 
 
 
+# ======== testing row corruption
+'''
 
+corrupt_row_perc = input(f'Enter amount of corruption for column {i} (0-100%): ')
+if int(corrupt_row_perc) > 100 or int(corrupt_row_perc) < 0:
+	print('PERCENTAGE ERROR: Input a value between 0% and 100%.')
+	sys.exit(0)
+
+corr_tot = int(int(no_lines) * (int(f'{corrupt_row_perc}')/100))
+uncorr_tot = int(no_lines) - int(int(no_lines) * (int(f'{corrupt_row_perc}')/100))
+
+# add the percentages based off of number of rows and total percentage based on rows not single elements in dataframe
+
+for i in 
+	rand_index = random.choice(dg_df.index)
+	rand_row = dg_df.loc[rand_index]
+
+'''
 # ======= OUTPUT
 print(f'{"="*40}\n{"=" + "Output Options".center(38," ") + "="}\n{"="*40}\n1 - CSV\n2 - ASCII\n3 - JSON\n4 - PKL\n5 - SQL\n6 - CDF\n{"="*40}')
 
