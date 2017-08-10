@@ -12,7 +12,39 @@ from urllib import error
 
 
 
+'''
+plt.figure()
+plt.subplot(111, projection="aitoff")
+plt.title("Aitoff")
+plt.plot(40.0, 60.0, 'o', color='blue')
+plt.grid(True)
+plt.show()
 
+sys.exit(0)
+'''
+
+
+
+from mpl_toolkits.basemap import Basemap
+import numpy as np
+import matplotlib.pyplot as plt
+# lon_0 is central longitude of projection.
+# resolution = 'c' means use crude resolution coastlines.
+m = Basemap(projection='hammer',lon_0=0,resolution='c')
+m.drawcoastlines()
+m.fillcontinents(color='coral',lake_color='aqua')
+# draw parallels and meridians.
+m.drawparallels(np.arange(-90.,120.,30.), labels=[1,0,0,0])
+m.drawmeridians(np.arange(0.,420.,60.), labels=[1,0,0,0])
+m.drawmapboundary(fill_color='aqua')
+plt.title("Hammer Projection")
+
+x,y = m(40.0, 20.0)
+plt.plot(x,y, 'o', color='blue')
+
+plt.show()
+
+sys.exit(0)
 
 
 # from netCDF4 import Dataset, num2date
