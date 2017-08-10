@@ -11,6 +11,13 @@ from spacepy import pycdf
 from urllib import error
 
 
+
+# ========== Reading in CSV
+data = pd.read_csv('')
+
+
+
+
 #=========== Plotting Data
 '''
 1 - GOES-15 Proton Flux
