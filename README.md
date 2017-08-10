@@ -33,6 +33,9 @@
   - [x] payload (7/29/2017)
   - [x] latitude/longitude (7/29/2017)
     - [x] latitude/longitude checker (7/29/2017)
+  - [ ] Add cityin and cityout
+    - [ ] City name
+    - [ ] City coordinates
         
 
 - [ ] Input statements
@@ -56,8 +59,16 @@
   - [ ] fname : payload
   - [ ] datetime : payload
   - [ ] subplot with all preceding plots
+  - [x] Make Hammer projection for latitude and longitude values (8/10/2017)
+    - [x] Make points for the coordinates in the datafile (8/10/2017)
+  - [ ] Create a flight trajectory from cityin to cityout
+
 
 # Current Errors and Pressing Tasks
+
+### Cityin and Cityout data columns
+- Add cities that have international airports. As the toip and fmip, there will be a pair of two cities. Eventually plots will be generated with trajectories from the cityin to cityout.
+
 
 ### Corruption errors when parsing full dataframe
 - When using the corruption for the full dataframe, the day of year and some unix_time timestamps do not correlate with the respective datetime index. 
@@ -102,6 +113,9 @@ Module       | Submodule(s) | as | Uses
 ~~**os**~~                  | -                | -           | Remove files through script
 **geopy.geocoders**     | Nominatim        | -           | Enables realtime verification of given latitudes and longitudes
 **json**     | -        | -           | Allows for previewing data in .json format
+**mpl_toolkits**     | Basemap        | -           | Allows for previewing data in .json format
+
+
 
 
 \* Strike through modules are currently not in use in the current version of the script, but will later be implemented.
@@ -164,7 +178,8 @@ Choose delimiter character for .csv output: ,
 [x] Output as SQL generated.  
 
 
-
+## Data Plotter ([data_plotter_script](https://github.com/byamashiro/Python_Projects/blob/master/plot_data.py))
+CURRENTLY UNDER CONSTRUCTION
 
 
 ### Generated Data
