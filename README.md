@@ -56,15 +56,19 @@
   - [ ] Replace values with -99999.0
 
 - [ ] Plot data with matplotlib
-  - [ ] fname : payload
-  - [ ] datetime : payload
-  - [ ] subplot with all preceding plots
+  - [ ] Input scheme of all data columns
+    - [ ] fname : payload
+    - [ ] datetime : payload
+    - [ ] subplot with all preceding plots
   - [x] Make Hammer projection for latitude and longitude values (8/10/2017)
     - [x] Make points for the coordinates in the datafile (8/10/2017)
   - [ ] Create a flight trajectory from cityin to cityout
 
 
 # Current Errors and Pressing Tasks
+
+### Plot input sequence
+- Create an input sequence for plotting. If the user picks a string, only allow non-strings to be plot against. Have input if there will be multiple second axis rather than subplot features. Include hammer projection in the initial option.
 
 ### Cityin and Cityout data columns
 - Add cities that have international airports. As the toip and fmip, there will be a pair of two cities. Eventually plots will be generated with trajectories from the cityin to cityout.

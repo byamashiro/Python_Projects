@@ -22,7 +22,6 @@ def daterange( start_date, end_date ):
             yield start_date - datetime.timedelta( n )
 
 #==============Choosing Dataset
-print(f'{"="*40}\n{"=" + "DATASETS".center(38," ") + "="}\n{"="*40}\n1 - GOES-15 Proton Flux\n2 - Wind Type III Radio Bursts\n3 - Neutron Monitor Counts\n4 - ACE/Wind Solar Wind Speed\n5 - GOES-15 Xray Flux\n{"="*40}')
 
 '''
 1 - GOES Proton Flux
@@ -31,6 +30,9 @@ print(f'{"="*40}\n{"=" + "DATASETS".center(38," ") + "="}\n{"="*40}\n1 - GOES-15
 4 - ACE/Wind Solar Wind Speed'
 5 - GOES-15 Xray Flux
 '''
+
+''' # testing new plotting scheme
+print(f'{"="*40}\n{"=" + "DATASETS".center(38," ") + "="}\n{"="*40}\n1 - GOES-15 Proton Flux\n2 - Wind Type III Radio Bursts\n3 - Neutron Monitor Counts\n4 - ACE/Wind Solar Wind Speed\n5 - GOES-15 Xray Flux\n{"="*40}')
 
 
 option_bin_set = set()
@@ -54,7 +56,7 @@ while True: # energy_bin != 'done':
 
 	elif option_bin == 'done':
 		break
-
+'''
 
 
 # ========== Reading in CSV
@@ -70,6 +72,8 @@ data_df = pd.read_csv('output/data_sample.csv')
 3 - Neutron Monitor Counts
 4 - ACE/Wind Solar Wind Speed'
 '''
+
+''' # testing new plotting scheme
 length_data = int(len(option_bin_set))
 length_data_list = []
 for i in range(length_data):
@@ -83,6 +87,22 @@ def next():
 		j += 1
 	#print(length_data_list[j])
 
+
+def applyPlotStyle():
+	axes[length_data_list[j]].grid(True)
+	axes[length_data_list[j]].minorticks_on()
+
+
+if length_data > 1:
+	f, axes = plt.subplots(nrows=length_data, ncols=1, sharex=False, figsize=(10, 6))
+
+if length_data == 1:
+	length_data_list[0] = 0,0
+	f, axes = plt.subplots(nrows=length_data, ncols=1, sharex=True, figsize=(10, 6), squeeze=False)
+'''
+
+
+
 #high_bin_proton = sorted(energy_bin_list[-1])[1]
 #low_bin_proton = sorted(energy_bin_list[0])[1]
 
@@ -93,9 +113,9 @@ def next():
 
 
 
-def applyPlotStyle():
-	axes[length_data_list[j]].grid(True)
-	axes[length_data_list[j]].minorticks_on()
+
+	
+''' # uncomment for final write of code
 	axes[length_data_list[j]].legend(loc='lower right', ncol=1,fontsize=8)# borderaxespad=0)# bbox_to_anchor=(1, 0.5)) # bbox_to_anchor=(1.02,1.0)
 	if '1' in option_bin_set:
 		high_bin_proton = sorted(energy_bin_list)[-1][0]
@@ -104,17 +124,50 @@ def applyPlotStyle():
 		high_bin_proton_str = sorted(energy_bin_list)[-1][1]
 		low_bin_proton_str = sorted(energy_bin_list)[0][1]
 		axes[length_data_list[j]].axvline(proton_df[f'{low_bin_proton}'].idxmax()) # (proton_df.P6W_UNCOR_FLUX.max())
+	
+'''
 	# axes[length_data_list[j]].axvline(proton_df.idxmax().P6W_UNCOR_FLUX) # (proton_df.P6W_UNCOR_FLUX.max())
 
 
-if length_data > 1:
-	f, axes = plt.subplots(nrows=length_data, ncols=1, sharex=True, figsize=(10, 6))
-
-if length_data == 1:
-	length_data_list[0] = 0,0
-	f, axes = plt.subplots(nrows=length_data, ncols=1, sharex=True, figsize=(10, 6), squeeze=False)
 
 
+
+# =========== Choose which data to plot
+print(f'{"="*40}\n{"=" + "DATASETS".center(38," ") + "="}\n{"="*40}')
+
+data_set_count = 1
+for i in data_df.columns:
+	print(str(data_set_count) + '. ' + str(i))
+	data_set_count += 1
+print(f'{"="*40}')
+
+
+x_input = input('Choose x-axis data: ')
+y_input = input('Choose y-axis data: ')
+'''
+if x_input == fname or lname or email_address:
+	name_no = list(range(len(data_df)))
+	fname_list = list(data_df['fname'])
+	lname_list = list(data_df['lname'])
+'''
+
+data_df.set_index(f'{x_input}').plot(y=f'{y_input}',marker="o", color='blue' , rot=45, grid=True, figsize=(11,7)) # data_df[f'{y_input}']
+
+#plt.plot(data_df[f'{x_input}'], data_df[f'{y_input}'], 'o')
+
+plt.xlabel(f'{x_input}', fontname='Arial', fontsize=12)
+plt.ylabel(f'{y_input}', fontname='Arial', fontsize=12)
+
+# data_df.plot(rot=45) #kind='bar',alpha=0.75, rot=0)
+ #, horizontalalignment='center')
+# plt.setp(ax.xaxis.get_majorticklabels(), rotation=0, horizontalalignment='center')
+plt.tight_layout()
+plt.show()
+
+
+
+
+sys.exit(0)
 #======dataset plotting
 '''
 from mpl_toolkits.basemap import Basemap
@@ -140,12 +193,22 @@ plt.show()
 '''
 
 
+
 if '1' in option_bin_set:
 	next()
+	name_no = list(range(len(data_df)))
+	fname_list = list(data_df['fname'])
+	lname_list = list(data_df['lname'])
+	'''
 	for i in sorted(energy_bin_list):
 		axes[length_data_list[j]].plot(data_df['fname'], data_df['payload'], color=f'{i[2]}', label= f'{i[1]}')#, logy=True)
+	'''
+	#axes[length_data_list[j]].xticks(name_no, fname_list, rotation=45)
+	axes[length_data_list[j]].plot(name_no, data_df['payload'], color='blue', label= 'blah')#, logy=True)
 	axes[length_data_list[j]].set_yscale('log')
-	axes[length_data_list[j]].set_ylabel(f'GOES-{satellite_no} Proton\nFlux [pfu]', fontname="Arial", fontsize = 12)
+	axes[length_data_list[j]].set_ylabel(f'GOES- Proton\nFlux [pfu]', fontname="Arial", fontsize = 12)
+	plt.sca(axes[length_data_list[j]])
+	plt.xticks(name_no, fname_list, rotation=45)
 	applyPlotStyle()
 
 
@@ -201,7 +264,7 @@ myFmt = mdates.DateFormatter('%m/%d\n%H:%M')
 plt.suptitle(f'Space Weather Monitor', fontname="Arial", fontsize = 14) #, y=1.04,
 #plt.tight_layout()
 
-plt.subplots_adjust(wspace = 0, hspace = 0, top=0.91)
+plt.subplots_adjust(wspace = 0, hspace = 1, top=0.91)
 #plt.savefig('omni_test_legacy.png', format='png', dpi=900)
 
 plt.show()
