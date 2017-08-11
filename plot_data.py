@@ -133,17 +133,36 @@ if length_data == 1:
 
 
 # =========== Choose which data to plot
-print(f'{"="*40}\n{"=" + "DATASETS".center(38," ") + "="}\n{"="*40}')
+print(f'{"="*40}\n{"=" + "X".center(38," ") + "="}\n{"="*40}')
 
 data_set_count = 1
 for i in data_df.columns:
-	print(str(data_set_count) + '. ' + str(i))
+	if isinstance(data_df[f'{i}'][0], str) == True:
+		option_str = '  (Only available for x-axis)'
+	else:
+		option_str = ''
+	print(str(data_set_count) + '. ' + str(i) + f'{option_str}')
+
 	data_set_count += 1
 print(f'{"="*40}')
 
-
 x_input = input('Choose x-axis data: ')
+
+
+print(f'\n{"="*40}\n{"=" + "Y".center(38," ") + "="}\n{"="*40}')
+
+
+data_set_count = 1
+for i in data_df.columns:
+	if isinstance(data_df[f'{i}'][0], str) == False:
+			print(str(data_set_count) + '. ' + str(i))
+			data_set_count += 1
+
+print(f'{"="*40}')
 y_input = input('Choose y-axis data: ')
+
+
+
 '''
 if x_input == fname or lname or email_address:
 	name_no = list(range(len(data_df)))
@@ -152,6 +171,8 @@ if x_input == fname or lname or email_address:
 '''
 
 data_df.set_index(f'{x_input}').plot(y=f'{y_input}',marker="o", color='blue' , rot=45, grid=True, figsize=(11,7)) # data_df[f'{y_input}']
+
+
 
 #plt.plot(data_df[f'{x_input}'], data_df[f'{y_input}'], 'o')
 
