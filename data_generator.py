@@ -168,6 +168,21 @@ for i in range(len(dg_df)):
 dg_df['payload'] = payload_list
 print('[x] Payload generated.')
 
+# ======= city in / city out
+city_data = pd.read_csv('data/cit_data.txt', sep=',')
+
+cit_lat = ['city_lat']
+for i in cit_data['Latitude']:
+	if i.endswith('N'):
+		lat_n = i.rstrip('N')
+		cit_lat.append(float('+' + lat_n))
+	elif i.endswith('S'):
+		lat_s = i.rstrip('S')
+		cit_lat.append(float('-' + lat_s))
+
+
+
+
 
 
 
