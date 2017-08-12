@@ -146,7 +146,7 @@ for i in data_df.columns:
 	data_set_count += 1
 print(f'{"="*40}')
 
-x_input = input('Choose x-axis data: ')
+x_input = input('Choose x-axis data: ').lower()
 
 
 print(f'\n{"="*40}\n{"=" + "Y".center(38," ") + "="}\n{"="*40}')
@@ -159,18 +159,47 @@ for i in data_df.columns:
 			data_set_count += 1
 
 print(f'{"="*40}')
-y_input = input('Choose y-axis data: ')
-
-
 
 '''
-if x_input == fname or lname or email_address:
-	name_no = list(range(len(data_df)))
-	fname_list = list(data_df['fname'])
-	lname_list = list(data_df['lname'])
+option_y = input('Enter number of y-data: ')
+
+y_input = []
+for i in range(int(option_y)):
+	y_input.append(input('Choose y-axis data: '))
 '''
 
-data_df.set_index(f'{x_input}').plot(y=f'{y_input}',marker="o", color='blue' , rot=45, grid=True, figsize=(11,7)) # data_df[f'{y_input}']
+
+y_input = set()
+while True: # energy_bin != 'done':
+	option_bin = input('Enter y-axis data then "done" or "all": ').lower()
+	if option_bin != 'done':
+		if option_bin == 'all':
+			for i in data_df.columns:
+				if isinstance(data_df[f'{i}'][0], str) == False:
+					y_input.add(f'{i}')
+
+			break
+		
+		elif len(y_input) < data_set_count:
+			y_input.add(option_bin)
+
+			'''
+			if len(option_bin_set) > 4:
+				print('SELECTION ERROR: Only 4 datasets are allowed per canvas.')
+				sys.exit(0)
+			'''
+	elif option_bin == 'done':
+		break
+
+y_input = list(y_input)
+
+
+if x_input == y_input:
+	print('SELECTION ERROR: Only unique column data may be chosen.')
+	sys.exit(0)
+
+
+data_df.set_index(f'{x_input}').plot(y=y_input,marker="o", rot=45, grid=True, figsize=(11,7)) # data_df[f'{y_input}']
 
 
 
@@ -184,6 +213,37 @@ plt.ylabel(f'{y_input}', fontname='Arial', fontsize=12)
 # plt.setp(ax.xaxis.get_majorticklabels(), rotation=0, horizontalalignment='center')
 plt.tight_layout()
 plt.show()
+
+
+# if (x_input == 'lat' and y_input == 'long') or (y_input == 'lat' and x_input == 'long') or :
+option_map = input('Plot latitude and longitude projection? (yes or no): ')
+if option_map == 'yes':
+	from mpl_toolkits.basemap import Basemap
+	# lon_0 is central longitude of projection.
+	lats = list(data_df['lat'])
+	lons = list(data_df['long'])
+	
+	# resolution = 'c' means use crude resolution coastlines.
+	plt.figure(figsize=(10,6))
+	m = Basemap(projection='hammer',lon_0=0,resolution='c')
+	m.drawcoastlines()
+	m.fillcontinents(color='green',lake_color='aqua') #coral
+	# draw parallels and meridians.
+	m.drawparallels(np.arange(-90.,120.,30.), labels=[1,0,0,0])
+	m.drawmeridians(np.arange(0.,420.,60.)) # , labels=[1,0,0,0])
+	m.drawmapboundary(fill_color='aqua')
+	plt.title("Hammer Projection")
+	
+	x, y = m(lons,lats)
+	# plt.plot(x,y, 'o', color='blue')
+	m.scatter(x,y,10,marker='o',color='red')
+	# plt.tight_layout()
+
+	plt.show()
+
+elif option_map == 'no':
+	print('No projection generated.')
+	sys.exit(0)
 
 
 
