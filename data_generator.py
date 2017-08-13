@@ -170,8 +170,8 @@ print('[x] Payload generated.')
 
 # ======= city in / city out # still working
 
-'''
-city_data = pd.read_csv('data/cit_data.txt', sep=',')
+
+cit_data = pd.read_csv('data/cit_data.txt', sep=',')
 
 cit_lat = []
 for i in cit_data['Latitude']:
@@ -195,7 +195,19 @@ for i in cit_data['Longitude']:
 cit_data['city_lat'] = cit_lat
 cit_data['city_long'] = cit_long
 
-dg_df['Country'] = np.random.choice(cit_data['Country'], int(no_lines))
+dg_df['country'] = np.random.choice(cit_data['Country'], int(no_lines))
+
+cit_data.set_index('Country', inplace=True)
+
+
+cit_cap = []
+cit_lat = []
+cit_long = []
+
+for i in dg_df['country']:
+	cit_cap.append(cit_data['Capital'].loc[f'{i}'])
+	cit_lat.append(cit_data['city_lat'].loc[f'{i}'])
+	cit_long.append(cit_data['city_long'].loc[f'{i}'])
 
 
 
@@ -205,7 +217,8 @@ dg_df['Country'] = np.random.choice(cit_data['Country'], int(no_lines))
 
 print('[x] Latitude and longitude generated.')
 
-'''
+
+
 
 # ========= Corruption
 dg_list_multi = [x for x in dg_df.columns if not 'date_time' in x] # dg_list = list(dg_df.columns)
