@@ -67,11 +67,14 @@
 
 # Current Errors and Pressing Tasks
 
+### Issues with data
+- The sort option is exhibiting strange behavior. Each column, or some of them, are being sorted. For example, the 'doy' column is sorting itself in numerical order (i.e 1-365).
+
 ### Plot input sequence
 - Create an input sequence for plotting. If the user picks a string, only allow non-strings to be plot against. Have input if there will be multiple second axis rather than subplot features. Include hammer projection in the initial option.
 
 ### Cityin and Cityout data columns
-- Add cities that have international airports. As the toip and fmip, there will be a pair of two cities. Eventually plots will be generated with trajectories from the cityin to cityout.
+- Add cities that have international airports. As the toip and fmip, there will be a pair of two cities. Eventually plots will be generated with trajectories from the cityin to cityout. 
 
 
 ### Corruption errors when parsing full dataframe
