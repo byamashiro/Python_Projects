@@ -81,7 +81,7 @@ doy_list = []
 for i in range(len(dg_df)):
 	doy_list.append((dg_df['date_time'][i].timetuple()).tm_yday)
 
-dg_df['doy'] = sorted(doy_list) # day of year
+dg_df['doy'] = doy_list # day of year # was sorted(doy_list), but changed
 	
 dg_df.set_index(keys='date_time' , inplace=True)
 print('[x] Datetimes generated.')
