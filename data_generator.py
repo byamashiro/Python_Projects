@@ -192,22 +192,46 @@ for i in cit_data['Longitude']:
 		long_s = i.rstrip('W')
 		cit_long.append(float('-' + long_s))
 
+
 cit_data['city_lat'] = cit_lat
 cit_data['city_long'] = cit_long
 
-dg_df['country'] = np.random.choice(cit_data['Country'], int(no_lines))
+# ====== country in
 
-cit_data.set_index('Country', inplace=True)
+dg_df['country_in'] = np.random.choice(cit_data['Country'], int(no_lines))
 
+cit_data.set_index('Country',drop=False, inplace=True)
 
 cit_cap = []
 cit_lat = []
 cit_long = []
 
-for i in dg_df['country']:
+for i in dg_df['country_in']:
 	cit_cap.append(cit_data['Capital'].loc[f'{i}'])
 	cit_lat.append(cit_data['city_lat'].loc[f'{i}'])
 	cit_long.append(cit_data['city_long'].loc[f'{i}'])
+
+dg_df['capital_in'] = cit_cap
+dg_df['city_lat_in'] = cit_lat
+dg_df['city_long_in'] = cit_long
+
+# ======= country out
+dg_df['country_out'] = np.random.choice(cit_data['Country'], int(no_lines))
+
+cit_data.set_index('Country', inplace=True)
+
+cit_cap = []
+cit_lat = []
+cit_long = []
+
+for i in dg_df['country_out']:
+	cit_cap.append(cit_data['Capital'].loc[f'{i}'])
+	cit_lat.append(cit_data['city_lat'].loc[f'{i}'])
+	cit_long.append(cit_data['city_long'].loc[f'{i}'])
+
+dg_df['capital_out'] = cit_cap
+dg_df['city_lat_out'] = cit_lat
+dg_df['city_long_out'] = cit_long
 
 
 

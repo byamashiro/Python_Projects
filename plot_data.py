@@ -225,7 +225,7 @@ if option_map == 'yes':
 	
 	# resolution = 'c' means use crude resolution coastlines.
 	plt.figure(figsize=(10,6))
-	m = Basemap(projection='hammer',lon_0=0,resolution='c')
+	m = Basemap(projection='hammer',lon_0=0,resolution='c') # lon_0 = 0
 	m.drawcoastlines()
 	m.fillcontinents(color='green',lake_color='aqua') #coral
 	# draw parallels and meridians.
@@ -236,7 +236,21 @@ if option_map == 'yes':
 	
 	x, y = m(lons,lats)
 	# plt.plot(x,y, 'o', color='blue')
-	m.scatter(x,y,10,marker='o',color='red')
+	m.scatter(x,y,10,marker='o',color='red', zorder=5)
+
+
+	citin_x, citin_y = m(list(data_df['city_long_in']), list(data_df['city_lat_in']))
+	citout_x, citout_y = m(list(data_df['city_long_out']), list(data_df['city_lat_out']))
+
+
+	# m.drawgreatcircle(citin_x,citin_y,citout_x,citout_y,linewidth=2,color='blue', zorder=4)
+
+	# m.drawgreatcircle(list(data_df['city_long_in']),list(data_df['city_lat_in']),list(data_df['city_long_out']),list(data_df['city_lat_out']),linewidth=2,color='blue', zorder=4)
+	for i in range(len(data_df)):
+		m.drawgreatcircle(list(data_df['city_long_in'])[i],list(data_df['city_lat_in'])[i],list(data_df['city_long_out'])[i],list(data_df['city_lat_out'])[i],linewidth=1,color='blue', zorder=4)
+
+
+
 	# plt.tight_layout()
 
 	plt.show()
