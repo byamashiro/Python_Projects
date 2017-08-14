@@ -67,13 +67,14 @@
 
 # Current Errors and Pressing Tasks
 
-
-
 ### Plot input sequence
+- Implement a feature to skip initial plotting and skip to the projection plotting.
 - Create an input sequence for plotting. If the user picks a string, only allow non-strings to be plot against. Have input if there will be multiple second axis rather than subplot features. Include hammer projection in the initial option.
 
+
 ### Cityin and Cityout data columns
-- Add cities that have international airports. As the toip and fmip, there will be a pair of two cities. Eventually plots will be generated with trajectories from the cityin to cityout. 
+- Current implementation uses capital cities worldwide, but the problem lies in the excessive amount of cities in Africa. When using the flight map, the code will show most flights trajectories tracing to Africa. Airport latitude and longitudes will be implemented for airports rather than cities to accurately represent flight trajectories.
+- Add cities that have international airports. As the toip and fmip, there will be a pair of two cities. Eventually plots will be generated with trajectories from the cityin to cityout.
 
 
 ### Corruption errors when parsing full dataframe
