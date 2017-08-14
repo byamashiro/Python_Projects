@@ -67,8 +67,7 @@
 
 # Current Errors and Pressing Tasks
 
-### Issues with data
-- The sort option is exhibiting strange behavior. Each column, or some of them, are being sorted. For example, the 'doy' column is sorting itself in numerical order (i.e 1-365).
+
 
 ### Plot input sequence
 - Create an input sequence for plotting. If the user picks a string, only allow non-strings to be plot against. Have input if there will be multiple second axis rather than subplot features. Include hammer projection in the initial option.
@@ -292,6 +291,10 @@ Deprecated [scripts](https://github.com/byamashiro/Python_Projects/tree/master/d
 
 
 # Resolved Errors
+
+### Issues with data (8/13/2017)
+* **Resolution**: The 'sorted' function was applied to the list containing the day of year (i.e. sorted(doy_list)). In this instance, the sorted feature was removed and the doy is represented correctly.
+- The sort option is exhibiting strange behavior. Each column, or some of them, are being sorted. For example, the 'doy' column is sorting itself in numerical order (i.e 1-365).
 
 ### Adding corruption (8/01/2017)
 * **Resolution**: Instead of two different corruption segments for the entire dataframe and column-wise, both were integrated into one loop.
