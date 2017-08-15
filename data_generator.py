@@ -190,7 +190,7 @@ for i in dg_df['Apt_ID_in']:
 	cit_long.append(apt_data['Longitude'].loc[i])
 
 dg_df['country_in'] = cit_country
-dg_df['capital_in'] = cit_cap
+dg_df['city_in'] = cit_cap
 dg_df['city_lat_in'] = cit_lat
 dg_df['city_long_in'] = cit_long
 
@@ -211,7 +211,7 @@ for i in dg_df['Apt_ID_out']:
 	cit_long.append(apt_data['Longitude'].loc[i])
 
 dg_df['country_out'] = cit_country
-dg_df['capital_out'] = cit_cap
+dg_df['city_out'] = cit_cap
 dg_df['city_lat_out'] = cit_lat
 dg_df['city_long_out'] = cit_long
 
