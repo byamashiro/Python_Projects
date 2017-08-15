@@ -62,19 +62,21 @@
     - [ ] subplot with all preceding plots
   - [x] Make Hammer projection for latitude and longitude values (8/10/2017)
     - [x] Make points for the coordinates in the datafile (8/10/2017)
-  - [ ] Create a flight trajectory from cityin to cityout
+  - [x] Create a flight trajectory from cityin to cityout (8/15/2017)
+    - [ ] Fix trajectories on limb intersections
 
 
 # Current Errors and Pressing Tasks
+
+### Basemap plot limitations
+- The basemap module runs into a few complications when a trajectory intersects the projection limb. Instead of a trajectory resuming on the other limb, a horizontal line is generated from one limb to the other, and then the trajectory is resumed.
 
 ### Plot input sequence
 - Implement a feature to skip initial plotting and skip to the projection plotting.
 - Create an input sequence for plotting. If the user picks a string, only allow non-strings to be plot against. Have input if there will be multiple second axis rather than subplot features. Include hammer projection in the initial option.
 
 
-### Cityin and Cityout data columns
-- Current implementation uses capital cities worldwide, but the problem lies in the excessive amount of cities in Africa. When using the flight map, the code will show most flights trajectories tracing to Africa. Airport latitude and longitudes will be implemented for airports rather than cities to accurately represent flight trajectories.
-- Add cities that have international airports. As the toip and fmip, there will be a pair of two cities. Eventually plots will be generated with trajectories from the cityin to cityout.
+
 
 
 ### Corruption errors when parsing full dataframe
@@ -292,6 +294,11 @@ Deprecated [scripts](https://github.com/byamashiro/Python_Projects/tree/master/d
 
 
 # Resolved Errors
+
+### Cityin and Cityout data columns (8/15/2017)
+* **Resolution**: New airport data was used to accurately represent specified airports and the respective cities and countries. Instead of parsing off of countries like the previous code, the 'Airport_ID' was used. This was because the IDs are unique integer values, whereas there could be multiple representations of countries.
+- Current implementation uses capital cities worldwide, but the problem lies in the excessive amount of cities in Africa. When using the flight map, the code will show most flights trajectories tracing to Africa. Airport latitude and longitudes will be implemented for airports rather than cities to accurately represent flight trajectories.
+- Add cities that have international airports. As the toip and fmip, there will be a pair of two cities. Eventually plots will be generated with trajectories from the cityin to cityout.
 
 ### Issues with data (8/13/2017)
 * **Resolution**: The 'sorted' function was applied to the list containing the day of year (i.e. sorted(doy_list)). In this instance, the sorted feature was removed and the doy is represented correctly.
