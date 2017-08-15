@@ -248,7 +248,7 @@ if option_map == 'yes':
 	# m.drawgreatcircle(citin_x,citin_y,citout_x,citout_y,linewidth=2,color='blue', zorder=4)
 	# m.drawgreatcircle(list(data_df['city_long_in']),list(data_df['city_lat_in']),list(data_df['city_long_out']),list(data_df['city_lat_out']),linewidth=2,color='blue', zorder=4)
 	
-
+	''' # Work on this code next to fix trajectories
 	for i in range(len(data_df)):
 
 		line, = m.drawgreatcircle(list(data_df['city_long_in'])[i],list(data_df['city_lat_in'])[i],list(data_df['city_long_out'])[i],list(data_df['city_lat_out'])[i], lw=3)
@@ -267,15 +267,16 @@ if option_map == 'yes':
 		                               )
 		    p.codes = None
 		    p.vertices = new_verts
-
 	'''
+
+	
 	color_cm=iter(cm.rainbow(np.linspace(0,1, len(data_df))))
 
 	for i in range(len(data_df)):
 
 		color_choice = next(color_cm)
 		m.drawgreatcircle(list(data_df['city_long_in'])[i],list(data_df['city_lat_in'])[i],list(data_df['city_long_out'])[i],list(data_df['city_lat_out'])[i],linewidth=1,color=color_choice, zorder=4)
-	'''
+	
 
 
 	# plt.tight_layout()
