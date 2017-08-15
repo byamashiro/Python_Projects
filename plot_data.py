@@ -219,20 +219,22 @@ plt.show()
 option_map = input('Plot latitude and longitude projection? (yes or no): ')
 if option_map == 'yes':
 	from mpl_toolkits.basemap import Basemap
+	from matplotlib.pyplot import cm
+
 	# lon_0 is central longitude of projection.
 	lats = list(data_df['lat'])
 	lons = list(data_df['long'])
 	
 	# resolution = 'c' means use crude resolution coastlines.
 	plt.figure(figsize=(10,6))
-	m = Basemap(projection='hammer',lon_0=0,resolution='c') # lon_0 = 0
+	m = Basemap(projection='robin',lon_0=0,resolution='c') # lon_0 = 0 # default used was 'hammer'
 	m.drawcoastlines()
 	m.fillcontinents(color='green',lake_color='aqua') #coral
 	# draw parallels and meridians.
 	m.drawparallels(np.arange(-90.,120.,30.), labels=[1,0,0,0])
 	m.drawmeridians(np.arange(0.,420.,60.)) # , labels=[1,0,0,0])
 	m.drawmapboundary(fill_color='aqua')
-	plt.title("Hammer Projection")
+	plt.title("Projection")
 	
 	x, y = m(lons,lats)
 	# plt.plot(x,y, 'o', color='blue')
@@ -244,11 +246,36 @@ if option_map == 'yes':
 
 
 	# m.drawgreatcircle(citin_x,citin_y,citout_x,citout_y,linewidth=2,color='blue', zorder=4)
-
 	# m.drawgreatcircle(list(data_df['city_long_in']),list(data_df['city_lat_in']),list(data_df['city_long_out']),list(data_df['city_lat_out']),linewidth=2,color='blue', zorder=4)
-	for i in range(len(data_df)):
-		m.drawgreatcircle(list(data_df['city_long_in'])[i],list(data_df['city_lat_in'])[i],list(data_df['city_long_out'])[i],list(data_df['city_lat_out'])[i],linewidth=1,color='blue', zorder=4)
+	
 
+	for i in range(len(data_df)):
+
+		line, = m.drawgreatcircle(list(data_df['city_long_in'])[i],list(data_df['city_lat_in'])[i],list(data_df['city_long_out'])[i],list(data_df['city_lat_out'])[i], lw=3)
+		
+		p = line.get_path()
+		# find the index which crosses the dateline (the delta is large)
+		cut_point = np.where(np.abs(np.diff(p.vertices[:, 0])) > 200)[0]
+		if cut_point:
+		    cut_point = cut_point[0]
+		
+		    # create new vertices with a nan inbetween and set those as the path's vertices
+		    new_verts = np.concatenate(
+		                               [p.vertices[:cut_point, :], 
+		                                [[np.nan, np.nan]], 
+		                                p.vertices[cut_point+1:, :]]
+		                               )
+		    p.codes = None
+		    p.vertices = new_verts
+
+	'''
+	color_cm=iter(cm.rainbow(np.linspace(0,1, len(data_df))))
+
+	for i in range(len(data_df)):
+
+		color_choice = next(color_cm)
+		m.drawgreatcircle(list(data_df['city_long_in'])[i],list(data_df['city_lat_in'])[i],list(data_df['city_long_out'])[i],list(data_df['city_lat_out'])[i],linewidth=1,color=color_choice, zorder=4)
+	'''
 
 
 	# plt.tight_layout()

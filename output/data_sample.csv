@@ -1,101 +1,11 @@
-fname,lname,dtime,unix_time,doy,email_address,toip,fmip,lat,long,payload,country_in,capital_in,city_lat_in,city_long_in,country_out,capital_out,city_lat_out,city_long_out
-Erlene,Czajkowski,2012-03-07 00:06:48,1331114808.0,67,ECzajkowski@mail2india.com,240.92.183.169,26.144.239.62,-60.542441,-179.505207,21796,Egypt,Cairo,30.01,31.14,Brazil,Brasilia,-15.47,-47.55
-Hobert,Grajek,2012-03-07 01:18:26,1331119106.0,67,HGrajek@itmom.com,149.19.75.223,14.225.242.29,-37.449809,171.439784,285087,Thailand,Bangkok,13.45,100.35,Jamaica,Kingston,18.0,-76.5
-Catina,Molzahn,2012-03-07 02:09:10,1331122150.0,67,CMolzahn@mantramail.com,98.226.33.139,164.213.178.89,-45.340113,-151.119543,12306,Switzerland,Bern,46.57,7.28,Democratic Republic of the Congo,Kinshasa,-4.2,15.15
-Joie,Restivo,2012-03-07 03:14:38,1331126078.0,67,JRestivo@netmongol.com,80.150.145.140,214.171.212.202,-60.970147,155.251173,442363,Somalia,Mogadishu,2.02,45.25,Zimbabwe,Harare,-17.43,31.02
-Rebeca,Sullivant,2012-03-07 04:20:49,1331130049.0,67,RSullivant@suhabi.com,244.46.23.43,81.222.169.248,43.936349,105.28457,920779,Bhutan,Thimphu,27.31,89.45,Viet Nam,Hanoi,21.05,105.55
-Evon,Lofaso,2012-03-07 06:24:19,1331137459.0,67,ELofaso@beenhad.com,70.26.160.3,11.224.218.128,-27.907977,-8.391117,295957,Brazil,Brasilia,-15.47,-47.55,Fiji,Suva,-18.06,178.3
-Myriam,Gowell,2012-03-07 06:53:16,1331139196.0,67,MGowell@mail2jew.com,36.20.147.228,152.205.57.90,-45.886817,-103.794877,724100,Tonga,Nuku'alofa,-21.1,-174.0,Lebanon,Beirut,33.53,35.31
-Manuel,Barfield,2012-03-07 06:55:31,1331139331.0,67,MBarfield@mail2stlouis.com,188.106.116.168,115.67.90.38,76.190406,31.824028,130238,Russian Federation,Moskva,55.45,37.35,Congo,Brazzaville,-4.09,15.12
-Rhonda,Sabean,2012-03-07 07:47:41,1331142461.0,67,RSabean@dnsmadeeasy.com,69.32.194.209,58.18.84.180,52.23986,40.99208,29360,Uruguay,Montevideo,-34.5,-56.11,Eritrea,Asmara,15.19,38.55
-Janna,New,2012-03-07 07:59:03,1331143143.0,67,JNew@bornnaked.com,58.18.156.166,252.184.111.201,-60.666074,-91.442282,781169,Germany,Berlin,52.3,13.25,Afghanistan,Kabul,34.28,69.11
-Lea,Kniss,2012-03-07 08:30:11,1331145011.0,67,LKniss@mail2cameroon.com,159.198.164.223,140.88.171.165,-59.892577,112.223882,895133,Northern Mariana Islands,Saipan,15.12,145.45,Faroe Islands,Torshavn,62.05,-6.56
-Isabelle,Fjetland,2012-03-07 08:46:12,1331145972.0,67,IFjetland@1nsyncfan.com,87.149.155.190,85.194.127.41,24.133308,-129.96807,530908,Armenia,Yerevan,40.1,44.31,Jordan,Amman,31.57,35.52
-Shay,Gavel,2012-03-07 10:04:47,1331150687.0,67,SGavel@tenderkiss.com,139.32.95.141,184.105.20.149,-60.827295,-18.023293,773537,Switzerland,Bern,46.57,7.28,Madagascar,Antananarivo,-18.55,47.31
-Dottie,Winley,2012-03-07 10:31:52,1331152312.0,67,DWinley@deal-maker.com,0.105.223.34,1.22.173.145,-28.053495,-39.858771,929569,Thailand,Bangkok,13.45,100.35,American Samoa,Pago Pago,-14.16,-170.43
-Julee,Brodtmann,2012-03-07 10:54:36,1331153676.0,67,JBrodtmann@pacbell.net,199.156.106.92,117.126.240.58,45.28592,-62.159289,213465,Bulgaria,Sofia,42.45,23.2,East Timor,Dili,-8.29,125.34
-Signe,Selem,2012-03-07 11:28:32,1331155712.0,67,SSelem@mail2holland.com,147.56.94.170,3.120.238.162,-40.921019,144.921074,170326,Somalia,Mogadishu,2.02,45.25,United Arab Emirates,Abu Dhabi,24.28,54.22
-Leandra,Bonini,2012-03-07 11:36:36,1331156196.0,67,LBonini@popsmail.com,130.15.59.87,219.3.75.187,84.54102,113.961145,240477,Republic of Korea,Seoul,37.31,126.58,Mauritania,Nouakchott,-20.1,57.3
-Merlyn,Tunnell,2012-03-07 11:55:14,1331157314.0,67,MTunnell@asiafind.com,141.34.133.30,123.146.254.149,41.552,-137.5322,336780,Myanmar,Yangon,16.45,96.2,China,Beijing,39.55,116.2
-Lurlene,Brasby,2012-03-07 12:35:20,1331159720.0,67,LBrasby@mail2heaven.com,60.130.187.163,250.81.52.30,76.55477,27.898911,326027,Ghana,Accra,5.35,-0.06,Zambia,Lusaka,-15.28,28.16
-Steven,Miazga,2012-03-07 13:29:49,1331162989.0,67,SMiazga@mantrafreenet.com,169.86.62.17,194.176.144.129,-84.679102,160.076066,143494,Faroe Islands,Torshavn,62.05,-6.56,Solomon Islands,Honiara,-9.27,159.57
-Meda,Malinovsky,2012-03-07 13:41:31,1331163691.0,67,MMalinovsky@free.com.pe,126.181.190.84,242.85.143.68,-46.840007,-16.719125,341767,Madagascar,Antananarivo,-18.55,47.31,Kuwait,Kuwait,29.3,48.0
-Jeannetta,Chillo,2012-03-07 13:48:08,1331164088.0,67,JChillo@mail2ann.com,97.86.249.246,184.130.80.0,78.194541,155.925535,359796,Azerbaijan,Baku,40.29,49.56,Cameroon,Yaounde,3.5,11.35
-Traci,Dundlow,2012-03-07 14:21:37,1331166097.0,67,TDundlow@webindia123.com,73.160.127.84,13.56.200.206,5.022881,50.1126,809428,Guyana,Georgetown,6.5,-58.12,Belarus,Minsk,53.52,27.3
-Tabitha,Lady,2012-03-07 14:39:26,1331167166.0,67,TLady@mail2idaho.com,214.146.12.173,169.248.235.253,56.161098,145.359521,767356,North Korea,Pyongyang,39.09,125.3,Macao (China),Macau,22.12,113.33
-Janeth,Purnell,2012-03-07 14:44:45,1331167485.0,67,JPurnell@telebot.net,42.38.218.209,100.11.85.31,-10.358518,36.098825,312489,Cayman Islands,George Town,19.2,-81.24,Zambia,Lusaka,-15.28,28.16
-Drucilla,Dieringer,2012-03-07 14:53:26,1331168006.0,67,DDieringer@mail2dawn.com,148.93.92.198,65.118.194.191,13.391292,-57.682415,318633,New Caledonia,Noumea,-22.17,166.3,Nepal,Kathmandu,27.45,85.2
-Savannah,Diemoz,2012-03-07 16:36:38,1331174198.0,67,SDiemoz@iwan-fals.com,111.170.235.68,100.19.11.242,40.431876,7.0154,267760,Antigua and Barbuda,West Indies,17.2,-61.48,France,Paris,48.5,2.2
-Preston,Earlgy,2012-03-07 17:23:40,1331177020.0,67,PEarlgy@mail2grenada.com,174.246.133.236,111.166.106.236,83.150676,-124.676029,350810,France,Paris,48.5,2.2,Yugoslavia,Belgrade,44.5,20.37
-Leon,Carangelo,2012-03-07 17:35:21,1331177721.0,67,LCarangelo@lycos.es,226.248.53.152,107.255.220.246,62.453739,178.170731,592843,Kenya,Nairobi,-1.17,36.48,French Guiana,Cayenne,5.05,-52.18
-Suzanna,Quivers,2012-03-07 21:37:00,1331192220.0,67,SQuivers@hughes.net,93.148.235.43,8.177.212.180,-23.488747,60.898338,534196,Venezuela ,Caracas,10.3,-66.55,Madagascar,Antananarivo,-18.55,47.31
-Charley,Sinkler,2012-03-07 21:46:48,1331192808.0,67,CSinkler@mail2air.com,145.37.69.95,171.228.247.142,-64.670151,23.102005,673520,Liberia,Monrovia,6.18,-10.47,Estonia,Tallinn,59.22,24.48
-Zoe,Keery,2012-03-07 21:51:48,1331193108.0,67,ZKeery@mail2james.com,219.227.111.185,45.161.72.183,-4.836636,-71.185405,365634,Zambia,Lusaka,-15.28,28.16,Macao (China),Macau,22.12,113.33
-Mohammad,Joun,2012-03-07 23:56:33,1331200593.0,67,MJoun@austin.rr.com,89.210.30.149,56.184.63.36,-54.884549,179.341837,446272,Egypt,Cairo,30.01,31.14,Zambia,Lusaka,-15.28,28.16
-Mariel,Schreimann,2012-03-08 00:13:20,1331201600.0,68,MSchreimann@mail2clinic.com,156.197.254.207,73.242.184.237,39.475404,-161.984165,582212,United States of Virgin Islands,Charlotte Amalie,18.21,-64.56,Saint Pierre and Miquelon,Saint-Pierre,46.46,-56.12
-Bernardine,Boer,2012-03-08 00:13:33,1331201613.0,68,BBoer@indiatimes.com,211.161.15.24,194.137.203.186,-74.98408,176.662323,980732,Iceland,Reykjavik,64.1,-21.57,South Africa,Pretoria (administrative) / Cape Town (legislative) / Bloemfontein (judicial),-25.44,28.12
-Ike,Mccullors,2012-03-08 03:23:23,1331213003.0,68,IMccullors@rome.com,43.58.127.95,20.247.106.32,-55.772306,70.414383,875343,Rawanda,Kigali,-1.59,30.04,South Africa,Pretoria (administrative) / Cape Town (legislative) / Bloemfontein (judicial),-25.44,28.12
-Jalisa,Regar,2012-03-08 03:40:13,1331214013.0,68,JRegar@icestorm.com,35.124.185.82,142.180.227.94,35.674219,116.857435,550561,Iceland,Reykjavik,64.1,-21.57,Denmark,Copenhagen,55.41,12.34
-Lana,Lampros,2012-03-08 03:47:20,1331214440.0,68,LLampros@cheerful.com,155.128.204.173,14.113.148.131,53.385505,176.343043,504758,Yugoslavia,Belgrade,44.5,20.37,Croatia,Zagreb,45.5,15.58
-Petrina,Toldness,2012-03-08 03:54:56,1331214896.0,68,PToldness@mail2jake.com,156.69.118.9,206.111.27.252,-40.011743,5.972329,568896,Lebanon,Beirut,33.53,35.31,Uruguay,Montevideo,-34.5,-56.11
-Ramonita,Ocran,2012-03-08 03:55:04,1331214904.0,68,ROcran@mail2marty.com,221.226.237.35,207.146.55.97,7.659942,163.733812,686306,Indonesia,Jakarta,-6.09,106.49,Ghana,Accra,5.35,-0.06
-Lavern,Nech,2012-03-08 05:57:26,1331222246.0,68,LNech@front.ru,88.1.97.189,13.123.116.113,-13.287789,-179.409971,849718,Ukraine,Kiev (Russia),50.3,30.28,United States of Virgin Islands,Charlotte Amalie,18.21,-64.56
-Sandee,Anguiano,2012-03-08 06:22:12,1331223732.0,68,SAnguiano@mail2jessica.com,72.9.119.63,156.91.55.238,10.333807,-178.910483,462935,French Polynesia,Papeete,-17.32,-149.34,Mayotte,Mamoudzou,-12.48,45.14
-Zelda,Kutcher,2012-03-08 06:29:13,1331224153.0,68,ZKutcher@pisem.net,134.122.140.176,54.159.48.167,20.815888,56.362624,229801,Ireland,Dublin,53.21,-6.15,Canada,Ottawa,45.27,-75.42
-Betty,Schlee,2012-03-08 07:21:26,1331227286.0,68,BSchlee@sialkotoye.com,220.222.224.236,107.25.89.152,-79.88714,-13.213165,95781,Saint Pierre and Miquelon,Saint-Pierre,46.46,-56.12,Kenya,Nairobi,-1.17,36.48
-Valentine,Leipert,2012-03-08 07:24:29,1331227469.0,68,VLeipert@mail2sat.com,252.231.192.24,175.143.122.34,79.867226,79.862639,622370,Ghana,Accra,5.35,-0.06,Turkey,Ankara,39.57,32.54
-Frieda,Carvana,2012-03-08 07:29:22,1331227762.0,68,FCarvana@webmail.co.yu,94.246.67.174,101.33.82.254,-69.273496,25.93676,44369,Lithuania,Vilnius,54.38,25.19,Kenya,Nairobi,-1.17,36.48
-Fay,Kaan,2012-03-08 07:37:26,1331228246.0,68,FKaan@cyberbabies.com,43.32.37.82,238.132.6.145,-84.890265,59.212174,881476,Sierra Leone,Freetown,8.3,-13.17,Uganda,Kampala,0.2,32.3
-Queen,Horridge,2012-03-08 07:38:40,1331228320.0,68,QHorridge@mail2lucy.com,130.88.112.25,146.129.231.127,-83.076469,-124.389363,891715,Heard Island and McDonald Islands,,-53.0,74.0,Congo,Brazzaville,-4.09,15.12
-Orlando,Lemle,2012-03-08 09:00:43,1331233243.0,68,OLemle@schoolmail.com,156.40.19.118,12.133.188.63,-2.405781,56.896184,433083,Kyrgyzstan,Bishkek,42.54,74.46,Eritrea,Asmara,15.19,38.55
-Neta,Deloera,2012-03-08 09:39:41,1331235581.0,68,NDeloera@wp.pl,96.171.54.80,54.62.1.238,1.188921,6.872692,659959,Netherlands Antilles,Willemstad,12.05,-69.0,Philippines,Manila,14.4,121.03
-Muoi,Zade,2012-03-08 10:46:10,1331239570.0,68,MZade@public.usa.com,60.18.99.142,229.54.130.78,-65.491167,71.634413,903579,Cyprus,Nicosia,35.1,33.25,Ukraine,Kiev (Russia),50.3,30.28
-Eloy,Mustafaa,2012-03-08 11:18:09,1331241489.0,68,EMustafaa@wearab.net,4.65.141.87,69.16.55.220,-73.902561,-139.900666,472308,Netherlands,Amsterdam / The Hague (seat of Government),52.23,4.54,Zimbabwe,Harare,-17.43,31.02
-Rima,Armer,2012-03-08 11:38:36,1331242716.0,68,RArmer@mail2strong.com,212.149.251.24,254.3.67.184,-66.161766,63.07857,741232,Estonia,Tallinn,59.22,24.48,Saint Pierre and Miquelon,Saint-Pierre,46.46,-56.12
-Lissa,Plateros,2012-03-08 12:06:26,1331244386.0,68,LPlateros@mail2cambodia.com,8.58.94.208,84.237.30.145,-3.881885,82.628682,877831,China,Beijing,39.55,116.2,Albania,Tirane,41.18,19.49
-Shelby,Glodich,2012-03-08 12:52:21,1331247141.0,68,SGlodich@mail2zeus.com,219.54.29.105,60.102.161.194,-53.70602,-5.274609,463649,Egypt,Cairo,30.01,31.14,Cambodia,Phnom Penh,11.33,104.55
-Cletus,Rothenberg,2012-03-08 13:22:22,1331248942.0,68,CRothenberg@excite.com,254.231.196.230,180.197.93.132,40.79444,-130.853286,807099,Greece,Athens,37.58,23.46,Nicaragua,Managua,12.06,-86.2
-Miriam,Sandy,2012-03-08 13:32:20,1331249540.0,68,MSandy@mail2alien.com,25.103.251.156,148.17.166.166,21.363848,-93.806555,722789,East Timor,Dili,-8.29,125.34,Bangladesh,Dhaka,23.43,90.26
-Robbi,Redish,2012-03-08 14:18:43,1331252323.0,68,RRedish@mynetaddress.com,104.46.168.66,234.45.32.167,-26.21718,106.618583,824804,Myanmar,Yangon,16.45,96.2,Portugal,Lisbon,38.42,-9.1
-Wanita,Wamser,2012-03-08 17:04:47,1331262287.0,68,WWamser@mail2claude.com,46.71.189.49,7.94.127.236,-84.326236,53.169885,69094,Liechtenstein,Vaduz,47.08,9.31,French Polynesia,Papeete,-17.32,-149.34
-Fatima,Hagenbrok,2012-03-08 18:17:26,1331266646.0,68,FHagenbrok@galamb.net,149.115.91.218,66.99.191.69,32.286532,-98.263847,207048,Brazil,Brasilia,-15.47,-47.55,Cuba,Havana,23.08,-82.22
-Haley,Dagley,2012-03-08 18:32:18,1331267538.0,68,HDagley@presidency.com,138.196.189.109,178.41.89.211,4.017358,-161.855215,414904,South Africa,Pretoria (administrative) / Cape Town (legislative) / Bloemfontein (judicial),-25.44,28.12,Congo,Brazzaville,-4.09,15.12
-Shawn,Capito,2012-03-08 20:53:16,1331275996.0,68,SCapito@mail2rose.com,17.32.101.191,88.118.173.135,67.943858,-57.910712,280752,South Africa,Pretoria (administrative) / Cape Town (legislative) / Bloemfontein (judicial),-25.44,28.12,Romania,Bucuresti,44.27,26.1
-Tajuana,Munz,2012-03-08 22:10:41,1331280641.0,68,TMunz@gospelfan.com,97.138.89.236,170.51.228.153,-3.391485,91.300625,55465,Tajikistan,Dushanbe,38.33,68.48,Falkland Islands (Malvinas),Stanley,-51.4,-59.51
-Cheryle,Schmucker,2012-03-08 23:12:54,1331284374.0,68,CSchmucker@ftml.net,7.246.10.182,216.162.143.218,42.160671,132.091394,234750,Greenland,Nuuk,64.1,-51.35,Armenia,Yerevan,40.1,44.31
-Keesha,Keranen,2012-03-08 23:18:08,1331284688.0,68,KKeranen@talkcity.com,7.59.53.2,134.16.124.186,-41.133367,-80.00328,102357,Slovakia,Bratislava,48.1,17.07,Indonesia,Jakarta,-6.09,106.49
-Rosanne,Klei,2012-03-09 00:16:00,1331288160.0,69,RKlei@collegebeat.com,53.22.24.106,97.156.131.176,33.542282,-166.034684,441648,French Polynesia,Papeete,-17.32,-149.34,Falkland Islands (Malvinas),Stanley,-51.4,-59.51
-Meghan,Seng,2012-03-09 00:41:39,1331289699.0,69,MSeng@mail2barbara.com,240.166.156.229,81.242.45.217,-43.06328,-138.850124,806132,China,Beijing,39.55,116.2,Colombia,Bogota,4.34,-74.0
-Dusty,Dietzen,2012-03-09 01:19:15,1331291955.0,69,DDietzen@dontgotmail.com,87.5.163.139,250.38.30.222,-29.812241,36.855406,426636,Nigeria,Abuja,9.05,7.32,Slovakia,Bratislava,48.1,17.07
-Asa,Selmon,2012-03-09 02:22:18,1331295738.0,69,ASelmon@mail2rachel.com,82.131.42.54,101.213.20.193,13.739957,33.692993,193910,Turkey,Ankara,39.57,32.54,Finland,Helsinki,60.15,25.03
-Jinny,Clayborne,2012-03-09 02:49:05,1331297345.0,69,JClayborne@24horas.com,43.75.45.241,159.250.79.16,46.099745,-12.747328,779040,Canada,Ottawa,45.27,-75.42,Andorra,Andorra la Vella,42.31,1.32
-Vivan,Gyger,2012-03-09 03:55:51,1331301351.0,69,VGyger@digibel.be,55.112.61.142,18.127.160.217,-26.259048,124.196979,66663,Dominica,Roseau,15.2,-61.24,Iraq,Baghdad,33.2,44.3
-Odell,Levinthal,2012-03-09 05:07:18,1331305638.0,69,OLevinthal@mail2lovable.com,148.224.246.209,22.176.36.24,1.602315,-118.142648,851655,American Samoa,Pago Pago,-14.16,-170.43,El Salvador,San Salvador,13.4,-89.1
-Brock,Vannelli,2012-03-09 05:39:05,1331307545.0,69,BVannelli@mycity.com,22.122.203.102,127.226.6.255,-62.791167,-140.507239,582761,Sierra Leone,Freetown,8.3,-13.17,Tajikistan,Dushanbe,38.33,68.48
-Vonda,Anetsberger,2012-03-09 06:34:20,1331310860.0,69,VAnetsberger@fiberia.com,252.45.102.88,137.152.192.223,0.885274,-133.037451,978989,Swaziland,Mbabane (administrative),-26.18,31.06,Canada,Ottawa,45.27,-75.42
-Izetta,Ron,2012-03-09 08:49:25,1331318965.0,69,IRon@liberomail.com,43.47.82.80,5.22.160.236,29.501252,-57.045037,145595,Estonia,Tallinn,59.22,24.48,Cameroon,Yaounde,3.5,11.35
-Erline,Mcintyde,2012-03-09 10:39:56,1331325596.0,69,EMcintyde@spacebank.com,209.207.29.17,17.6.43.61,-88.968891,-67.837219,468495,Panama,Panama,9.0,-79.25,Canada,Ottawa,45.27,-75.42
-Rina,Curatolo,2012-03-09 11:02:13,1331326933.0,69,RCuratolo@cornerpub.com,37.67.140.118,7.66.244.115,-79.399796,6.746983,879384,Panama,Panama,9.0,-79.25,United States of America,Washington DC,39.91,-77.02
-Autumn,Verhulst,2012-03-09 11:10:34,1331327434.0,69,AVerhulst@whipmail.com,226.178.214.176,73.215.22.211,69.167056,-40.948937,390067,Philippines,Manila,14.4,121.03,Malawi,Lilongwe,-14.0,33.48
-Pilar,Patz,2012-03-09 11:32:29,1331328749.0,69,PPatz@karachioye.com,105.173.180.239,148.167.235.127,59.960133,-151.998081,333239,Rawanda,Kigali,-1.59,30.04,India,New Delhi,28.37,77.13
-Jeanice,Whitton,2012-03-09 11:40:54,1331329254.0,69,JWhitton@mail2dionysos.com,157.240.170.240,115.41.242.24,-36.988135,77.197803,464620,Luxembourg,Luxembourg,49.37,6.09,Samoa,Apia,-13.5,-171.5
-Bernard,Nop,2012-03-09 11:45:35,1331329535.0,69,BNop@innocent.com,209.186.32.192,84.159.15.65,74.275368,70.518562,609958,Heard Island and McDonald Islands,,-53.0,74.0,Nigeria,Abuja,9.05,7.32
-Darryl,Cusick,2012-03-09 11:49:12,1331329752.0,69,DCusick@sportsmail.com,208.78.80.180,165.27.73.140,-65.310405,-118.125007,242376,Guernsey,St. Peter Port,49.26,-2.33,Bahrain,Manama,26.1,50.3
-Kasandra,Laufenberg,2012-03-09 13:15:06,1331334906.0,69,KLaufenberg@from-germany.net,135.198.233.209,31.82.23.185,-20.308232,-33.383843,949342,Eritrea,Asmara,15.19,38.55,Paraguay,Asuncion,-25.1,-57.3
-Yael,Fikes,2012-03-09 13:45:35,1331336735.0,69,YFikes@mail2sagittarius.com,240.58.170.138,73.17.132.0,21.035621,-121.319899,153289,Georgia,T'bilisi,41.43,44.5,Uganda,Kampala,0.2,32.3
-Lourdes,Lamus,2012-03-09 14:37:41,1331339861.0,69,LLamus@c4.com,19.161.208.9,217.134.249.81,-54.624079,-53.140324,359017,Macedonia (Former Yugoslav Republic),Skopje,42.01,21.26,Syrian Arab Republic,Damascus,33.3,36.18
-Alvaro,Members,2012-03-09 14:41:06,1331340066.0,69,AMembers@eudoramail.com,204.43.116.109,187.117.162.151,-46.516657,-98.448892,432983,Poland,Warsaw,52.13,21.0,Burundi,Bujumbura,-3.16,29.18
-Kai,Kuang,2012-03-09 15:13:49,1331342029.0,69,KKuang@mail2mark.com,126.60.5.138,100.114.190.39,-69.901508,-166.227001,343045,Uzbekistan,Tashkent,41.2,69.1,Turkmenistan,Ashgabat,38.0,57.5
-Hildegarde,Goldblatt,2012-03-09 15:29:10,1331342950.0,69,HGoldblatt@i-p.com,222.116.182.249,82.122.95.25,59.252211,125.917938,168904,Myanmar,Yangon,16.45,96.2,Jamaica,Kingston,18.0,-76.5
-Moriah,Yelle,2012-03-09 15:45:04,1331343904.0,69,MYelle@nagpal.net,237.173.153.10,6.251.124.32,-37.863566,108.768893,762630,Mali,Bamako,12.34,-7.55,Samoa,Apia,-13.5,-171.5
-Fabian,Grossley,2012-03-09 16:00:38,1331344838.0,69,FGrossley@ausi.com,175.72.32.62,109.223.128.74,-33.500192,48.310023,917041,Cyprus,Nicosia,35.1,33.25,Lithuania,Vilnius,54.38,25.19
-Latina,Demichiel,2012-03-09 17:41:16,1331350876.0,69,LDemichiel@ukmax.com,30.30.234.157,12.239.197.55,17.769567,-14.614783,401348,Bolivia,La Paz (administrative) / Sucre (legislative),-16.2,-68.1,Thailand,Bangkok,13.45,100.35
-Kanesha,Lucksinger,2012-03-09 18:40:33,1331354433.0,69,KLucksinger@geek.hu,190.185.79.195,101.169.35.21,-0.566038,-94.91803,630893,Gambia,Banjul,13.28,-16.4,United Republic of Tanzania,Dodoma,-6.08,35.45
-Peter,Byard,2012-03-09 19:05:59,1331355959.0,69,PByard@send.hu,122.13.19.98,119.153.43.194,-87.7165,-117.832204,490335,Uganda,Kampala,0.2,32.3,South Africa,Pretoria (administrative) / Cape Town (legislative) / Bloemfontein (judicial),-25.44,28.12
-Julian,Silvestrini,2012-03-09 20:28:57,1331360937.0,69,JSilvestrini@mail2blonde.com,104.223.194.189,192.137.228.207,-52.309779,89.181423,296135,Thailand,Bangkok,13.45,100.35,Jamaica,Kingston,18.0,-76.5
-Brook,Stanbrough,2012-03-09 21:16:13,1331363773.0,69,BStanbrough@mariah-carey.ml.org,225.241.254.13,163.250.165.148,-54.809144,-102.732969,577418,Mali,Bamako,12.34,-7.55,Panama,Panama,9.0,-79.25
-Natividad,Goike,2012-03-09 21:19:32,1331363972.0,69,NGoike@racingmail.com,227.29.101.25,15.98.158.185,42.969157,59.505195,583537,Syrian Arab Republic,Damascus,33.3,36.18,Djibouti,Djibouti,11.08,42.2
-Luanne,Pretzer,2012-03-09 22:34:56,1331368496.0,69,LPretzer@kayafmmail.co.za,161.156.86.109,96.69.112.187,68.835638,179.722913,724469,East Timor,Dili,-8.29,125.34,Togo,Lome,6.09,1.2
-Roger,Legel,2012-03-09 22:49:46,1331369386.0,69,RLegel@singnet.com.sg,230.112.29.159,217.15.9.146,-45.95981,11.911274,679523,Brazil,Brasilia,-15.47,-47.55,Latvia,Riga,56.53,24.08
-Margherita,Laubersheimer,2012-03-09 23:00:05,1331370005.0,69,MLaubersheimer@keg-party.com,127.94.250.171,51.198.135.44,-40.607931,34.979825,564717,Austria,Vienna,48.12,16.22,Macedonia (Former Yugoslav Republic),Skopje,42.01,21.26
-Jacqueline,Leichtenberge,2012-03-09 23:47:29,1331372849.0,69,JLeichtenberge@goldenmail.ru,191.20.46.227,217.245.124.13,-52.577936,57.639059,423879,Kazakhstan,Astana,51.1,71.3,Germany,Berlin,52.3,13.25
+fname,lname,dtime,unix_time,doy,email_address,toip,fmip,lat,long,payload,Apt_ID_in,country_in,capital_in,city_lat_in,city_long_in,Apt_ID_out,country_out,capital_out,city_lat_out,city_long_out
+Laurinda,Leek,2012-03-07 01:54:04,1331121244.0,67,LLeek@mail2online.com,63.201.19.215,87.33.48.61,-46.77939,-90.487922,719878,757,Germany,Fritzlar,51.1146,9.286,6116,Belarus,Mogilev,53.95489883422852,30.09510040283203
+Amie,Perrill,2012-03-07 10:54:29,1331153669.0,67,APerrill@kansascity.com,52.227.133.195,14.191.44.220,-12.94185,51.435306,952018,3765,United States,Chandler,33.2691,-111.810997,1465,Greece,Limnos,39.917098999000004,25.236299514799995
+Florene,Merdian,2012-03-07 17:36:42,1331177802.0,67,FMerdian@mail2angela.com,34.114.239.185,43.23.227.181,57.980993,145.762513,724006,2738,Colombia,Puerto Carreno,6.1847199999999996,-67.4932,7058,United States,Frenchville,47.2854995728,-68.31279754639999
+Celinda,Downie,2012-03-07 21:07:29,1331190449.0,67,CDownie@message.hu,85.103.168.174,173.209.220.124,-32.760209,172.436372,301573,3671,United States,Melbourne,28.10280036926269,-80.64530181884766,3398,China,Hotan,37.03850173950195,79.86489868164062
+Orval,Kirt,2012-03-07 23:54:35,1331200475.0,67,OKirt@magicmail.co.za,29.214.76.74,33.11.18.122,14.251191,-20.209412,675519,11775,Canada,Kelsey,56.0374984741,-96.5096969604,7591,Kiribati,Buariki,0.1852779984474182,173.63699340820312
+Rosaria,Sibbett,2012-03-08 12:58:40,1331247520.0,68,RSibbett@mail2iris.com,123.88.59.32,232.139.153.220,42.199605,3.787165,558913,7617,Solomon Islands,Choiseul Bay,-6.711944,156.39611100000002,682,Sweden,Linkoeping,58.40230178833008,15.525699615478516
+Alla,Rutar,2012-03-08 15:01:37,1331254897.0,68,ARutar@mail2rabbi.com,187.99.31.97,10.30.188.213,8.660505,-45.307242,518075,1110,Ethiopia,Axum,14.14680004119873,38.77280044555664,1233,Spain,Ocana,39.9375,-3.5033299922943115
+Kiley,Mushrush,2012-03-08 22:17:45,1331281065.0,68,KMushrush@mail2italian.com,20.125.18.135,196.241.191.131,62.722587,-42.157708,670251,7648,United States,Palm Springs,33.748401641846,-116.27500152588001,7615,Solomon Islands,Afutara,-9.19138888889,160.948611111
+Paul,Pheasant,2012-03-09 04:52:33,1331304753.0,69,PPheasant@spacemart.com,128.227.69.133,63.223.35.207,-50.567769,87.877016,214180,4190,Greece,Astypalaia,36.5798988342,26.3757991791,1055,Spain,Arrecife,28.945499420166016,-13.605199813842773
+Merilyn,Yousef,2012-03-09 15:46:07,1331343967.0,69,MYousef@nyc.com,81.22.169.55,52.254.51.7,-67.01575,-96.440648,699192,2896,Netherlands Antilles,Kralendijk,12.130999565124512,-68.26850128173828,275,Nigeria,Port Hartcourt,5.0154900550842285,6.94959020614624

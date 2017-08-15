@@ -168,9 +168,99 @@ for i in range(len(dg_df)):
 dg_df['payload'] = payload_list
 print('[x] Payload generated.')
 
+
+
+
 # ======= city in / city out # still working
 
+apt_data = pd.read_csv('data/airports.dat', encoding = 'utf-8', sep=',')
 
+dg_df['Apt_ID_in'] = np.random.choice(apt_data['Airport_ID'], int(no_lines))
+apt_data.set_index('Airport_ID', drop=False, inplace=True)
+
+cit_country = []
+cit_cap = []
+cit_lat = []
+cit_long = []
+
+for i in dg_df['Apt_ID_in']:
+	cit_country.append(apt_data['Country'].loc[i])
+	cit_cap.append(apt_data['City'].loc[i])
+	cit_lat.append(apt_data['Latitude'].loc[i])
+	cit_long.append(apt_data['Longitude'].loc[i])
+
+dg_df['country_in'] = cit_country
+dg_df['capital_in'] = cit_cap
+dg_df['city_lat_in'] = cit_lat
+dg_df['city_long_in'] = cit_long
+
+# ======= country out
+dg_df['Apt_ID_out'] = np.random.choice(apt_data['Airport_ID'], int(no_lines))
+
+apt_data.set_index('Airport_ID',drop=False, inplace=True)
+
+cit_country = []
+cit_cap = []
+cit_lat = []
+cit_long = []
+
+for i in dg_df['Apt_ID_out']:
+	cit_country.append(apt_data['Country'].loc[i])
+	cit_cap.append(apt_data['City'].loc[i])
+	cit_lat.append(apt_data['Latitude'].loc[i])
+	cit_long.append(apt_data['Longitude'].loc[i])
+
+dg_df['country_out'] = cit_country
+dg_df['capital_out'] = cit_cap
+dg_df['city_lat_out'] = cit_lat
+dg_df['city_long_out'] = cit_long
+
+
+
+
+''' # queuing off of country, problem: many countries of the same name
+
+# dg_df['country_in'] = np.random.choice(apt_data['Country'], int(no_lines))
+
+apt_data.set_index('Country',drop=False, inplace=True)
+
+cit_cap = []
+cit_lat = []
+cit_long = []
+
+for i in dg_df['country_in']:
+	cit_cap.append(apt_data['City'].loc[f'{i}'])
+	cit_lat.append(apt_data['Latitude'].loc[f'{i}'])
+	cit_long.append(apt_data['Longitude'].loc[f'{i}'])
+
+dg_df['capital_in'] = cit_cap
+dg_df['city_lat_in'] = cit_lat
+dg_df['city_long_in'] = cit_long
+
+# ======= country out
+dg_df['country_out'] = np.random.choice(apt_data['Country'], int(no_lines))
+
+apt_data.set_index('Country',drop=False, inplace=True)
+
+cit_cap = []
+#cit_cap = [apt_data['City'].loc[f'{x}'] for x in dg_df['country_out']]
+cit_lat = []
+cit_long = []
+
+for i in dg_df['country_out']:
+	cit_cap.append(apt_data['City'].loc[f'{i}'])
+	cit_lat.append(apt_data['Latitude'].loc[f'{i}'])
+	cit_long.append(apt_data['Longitude'].loc[f'{i}'])
+
+
+dg_df['capital_out'] = cit_cap
+dg_df['city_lat_out'] = cit_lat
+dg_df['city_long_out'] = cit_long
+
+
+sys.exit(0)
+'''
+''' # old code
 cit_data = pd.read_csv('data/cit_data.txt', sep=',')
 
 cit_lat = []
@@ -237,7 +327,7 @@ dg_df['city_long_out'] = cit_long
 
 # dg_df['city_lat'] = np.random.choice(cit_data['city_lat'], int(no_lines))
 # dg_df['city_long'] = np.random.choice(cit_data['city_long'], int(no_lines))
-
+'''
 
 print('[x] Latitude and longitude generated.')
 
