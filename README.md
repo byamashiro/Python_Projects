@@ -188,7 +188,59 @@ Choose delimiter character for .csv output: ,
 
 
 ## Data Plotter ([data_plotter_script](https://github.com/byamashiro/Python_Projects/blob/master/plot_data.py))
-CURRENTLY UNDER CONSTRUCTION
+In [3]: **run plot_data.py**
+This unreleased version of SpacePy is not supported by the SpacePy team.
+========================================
+=                  X                   =
+========================================
+1. fname  (Only available for x-axis)
+2. lname  (Only available for x-axis)
+3. dtime  (Only available for x-axis)
+4. unix_time
+5. doy
+6. email_address  (Only available for x-axis)
+7. toip  (Only available for x-axis)
+8. fmip  (Only available for x-axis)
+9. lat
+10. long
+11. payload
+12. Apt_ID_in
+13. country_in  (Only available for x-axis)
+14. capital_in  (Only available for x-axis)
+15. city_lat_in
+16. city_long_in
+17. Apt_ID_out
+18. country_out  (Only available for x-axis)
+19. capital_out  (Only available for x-axis)
+20. city_lat_out
+21. city_long_out
+========================================
+Choose x-axis data: fname
+
+========================================
+=                  Y                   =
+========================================
+1. unix_time
+2. doy
+3. lat
+4. long
+5. payload
+6. Apt_ID_in
+7. city_lat_in
+8. city_long_in
+9. Apt_ID_out
+10. city_lat_out
+11. city_long_out
+========================================
+Enter y-axis data then "done" or "all": lat
+Enter y-axis data then "done" or "all": long
+Enter y-axis data then "done" or "all": done
+Plot latitude and longitude projection? (yes or no): yes
+
+
+<img src="output/test_plot.png" width="600">
+<img src="output/test_projection.png" width="600">
+
 
 
 ### Generated Data
@@ -272,7 +324,6 @@ Leatha  Haran 2011-04-03 14:29:16 1301876956.0  92  LHaran@mail2liberia.com 27.1
 ```
 
 
-[//]: <> <img src="Plots/omni_test.png" width="600">
 
 
 
