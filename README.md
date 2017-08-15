@@ -190,9 +190,9 @@ Choose delimiter character for .csv output: ,
 ## Data Plotter ([data_plotter_script](https://github.com/byamashiro/Python_Projects/blob/master/plot_data.py))
 In [3]: **run plot_data.py**
 This unreleased version of SpacePy is not supported by the SpacePy team.
-========================================
-=                  X                   =
-========================================
+\========================================
+\=                  X                   =
+\========================================
 1. fname  (Only available for x-axis)
 2. lname  (Only available for x-axis)
 3. dtime  (Only available for x-axis)
@@ -214,12 +214,12 @@ This unreleased version of SpacePy is not supported by the SpacePy team.
 19. capital_out  (Only available for x-axis)
 20. city_lat_out
 21. city_long_out
-========================================
+\========================================
 Choose x-axis data: fname
 
-========================================
-=                  Y                   =
-========================================
+\========================================
+\=                  Y                   =
+\========================================
 1. unix_time
 2. doy
 3. lat
@@ -231,7 +231,7 @@ Choose x-axis data: fname
 9. Apt_ID_out
 10. city_lat_out
 11. city_long_out
-========================================
+\========================================
 Enter y-axis data then "done" or "all": lat
 Enter y-axis data then "done" or "all": long
 Enter y-axis data then "done" or "all": done
