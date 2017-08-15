@@ -227,7 +227,7 @@ if option_map == 'yes':
 	
 	# resolution = 'c' means use crude resolution coastlines.
 	plt.figure(figsize=(10,6))
-	m = Basemap(projection='robin',lon_0=0,resolution='c') # lon_0 = 0 # default used was 'hammer'
+	m = Basemap(projection='hammer',lon_0=0,resolution='c') # lon_0 = 0 # default used was 'robin'
 	m.drawcoastlines()
 	m.fillcontinents(color='green',lake_color='aqua') #coral
 	# draw parallels and meridians.
