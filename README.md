@@ -98,6 +98,9 @@ Columns         |   DataFrame Column Name  | Format | Notes
 **payload**     |   payload       | random integer                | A random integer from 0-1000000.
 **day of year** |   doy           | integer following datetime format    | Integer of a day with respect to a specified year
 **unix time**   |   unix_time     | float following datetime format    |  Epoch time of number of seconds since January 1, 1970
+**country**     |   country_in,country_out | random string | Loaded random country string that represents a specific airport.
+**city**     |    | random string | Loaded random city string that represents a specific airport.
+
 
 
 #### Corruption
