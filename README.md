@@ -68,7 +68,8 @@
 
 # Current Errors and Pressing Tasks
 
-### Basemap plot limitations
+### Remake projection with the 'cartopy' module
+- The basemap module is now deprecated and will be ended with python 2.7. In this case, the 'cartopy' module will be used in place of basemap. Problems of basemap will be merged with this task since the cartopy module rectifies the basemap plot limitation for great circles.
 - The basemap module runs into a few complications when a trajectory intersects the projection limb. Instead of a trajectory resuming on the other limb, a horizontal line is generated from one limb to the other, and then the trajectory is resumed.
 
 ### Plot input sequence

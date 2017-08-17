@@ -218,6 +218,9 @@ plt.show()
 # if (x_input == 'lat' and y_input == 'long') or (y_input == 'lat' and x_input == 'long') or :
 option_map = input('Plot latitude and longitude projection? (yes or no): ')
 if option_map == 'yes':
+
+
+	''' # Basemap solution
 	from mpl_toolkits.basemap import Basemap
 	from matplotlib.pyplot import cm
 
@@ -246,31 +249,6 @@ if option_map == 'yes':
 	citin_x, citin_y = m(list(data_df['city_long_in']), list(data_df['city_lat_in']))
 	citout_x, citout_y = m(list(data_df['city_long_out']), list(data_df['city_lat_out']))
 
-
-	# m.drawgreatcircle(citin_x,citin_y,citout_x,citout_y,linewidth=2,color='blue', zorder=4)
-	# m.drawgreatcircle(list(data_df['city_long_in']),list(data_df['city_lat_in']),list(data_df['city_long_out']),list(data_df['city_lat_out']),linewidth=2,color='blue', zorder=4)
-	
-	''' # Work on this code next to fix trajectories
-	for i in range(len(data_df)):
-
-		line, = m.drawgreatcircle(list(data_df['city_long_in'])[i],list(data_df['city_lat_in'])[i],list(data_df['city_long_out'])[i],list(data_df['city_lat_out'])[i], lw=3)
-		
-		p = line.get_path()
-		# find the index which crosses the dateline (the delta is large)
-		cut_point = np.where(np.abs(np.diff(p.vertices[:, 0])) > 200)[0]
-		if cut_point:
-		    cut_point = cut_point[0]
-		
-		    # create new vertices with a nan inbetween and set those as the path's vertices
-		    new_verts = np.concatenate(
-		                               [p.vertices[:cut_point, :], 
-		                                [[np.nan, np.nan]], 
-		                                p.vertices[cut_point+1:, :]]
-		                               )
-		    p.codes = None
-		    p.vertices = new_verts
-	'''
-
 	
 	color_cm=iter(cm.viridis(np.linspace(0,1, len(data_df))))
 
@@ -284,6 +262,11 @@ if option_map == 'yes':
 	# plt.tight_layout()
 
 	plt.show()
+	'''
+
+
+
+
 
 elif option_map == 'no':
 	print('No projection generated.')
