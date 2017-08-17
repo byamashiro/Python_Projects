@@ -246,10 +246,10 @@ Plot latitude and longitude projection? (yes or no): yes
 
 
 <img src="output/test_plot.png" width="600">
-<img src="output/test_projection_cartopy.png" width="600">
+<img src="output/test_projection_cartopy.png" width="700">
 
-
-<img src="output/test_projection_basemap.png" width="600">
+#### Deprecated basemap module projection
+<img src="output/test_projection_basemap.png" width="700">
 
 
 
