@@ -226,15 +226,17 @@ if option_map == 'yes':
 	lons = list(data_df['long'])
 	
 	# resolution = 'c' means use crude resolution coastlines.
+	proj_choice = 'hammer'
+
 	plt.figure(figsize=(10,6))
-	m = Basemap(projection='hammer',lon_0=0,resolution='c') # lon_0 = 0 # default used was 'robin'
+	m = Basemap(projection=f'{proj_choice}',lon_0=0,resolution='c') # lon_0 = 0 # default used was 'robin'
 	m.drawcoastlines()
 	m.fillcontinents(color='green',lake_color='aqua') #coral
 	# draw parallels and meridians.
 	m.drawparallels(np.arange(-90.,120.,30.), labels=[1,0,0,0])
 	m.drawmeridians(np.arange(0.,420.,60.)) # , labels=[1,0,0,0])
 	m.drawmapboundary(fill_color='aqua')
-	plt.title("Projection")
+	plt.title(f"{proj_choice} Projection".title())
 	
 	x, y = m(lons,lats)
 	# plt.plot(x,y, 'o', color='blue')
@@ -270,7 +272,7 @@ if option_map == 'yes':
 	'''
 
 	
-	color_cm=iter(cm.rainbow(np.linspace(0,1, len(data_df))))
+	color_cm=iter(cm.viridis(np.linspace(0,1, len(data_df))))
 
 	for i in range(len(data_df)):
 
