@@ -133,94 +133,103 @@ if length_data == 1:
 
 
 # =========== Choose which data to plot
-print(f'{"="*40}\n{"=" + "X".center(38," ") + "="}\n{"="*40}')
+plot_choice = input('Enter plot option (plot or map): ')
+if plot_choice == 'plot': # here for testing, remove when projection is complete
 
-data_set_count = 1
-for i in data_df.columns:
-	if isinstance(data_df[f'{i}'][0], str) == True:
-		option_str = '  (Only available for x-axis)'
-	else:
-		option_str = ''
-	print(str(data_set_count) + '. ' + str(i) + f'{option_str}')
-
-	data_set_count += 1
-print(f'{"="*40}')
-
-x_input = input('Choose x-axis data: ').lower()
-
-
-print(f'\n{"="*40}\n{"=" + "Y".center(38," ") + "="}\n{"="*40}')
+	print(f'{"="*40}\n{"=" + "X".center(38," ") + "="}\n{"="*40}')
+	
+	data_set_count = 1
+	for i in data_df.columns:
+		if isinstance(data_df[f'{i}'][0], str) == True:
+			option_str = '  (Only available for x-axis)'
+		else:
+			option_str = ''
+		print(str(data_set_count) + '. ' + str(i) + f'{option_str}')
+	
+		data_set_count += 1
+	print(f'{"="*40}')
 
 
-data_set_count = 1
-for i in data_df.columns:
-	if isinstance(data_df[f'{i}'][0], str) == False:
-			print(str(data_set_count) + '. ' + str(i))
-			data_set_count += 1
-
-print(f'{"="*40}')
-
-'''
-option_y = input('Enter number of y-data: ')
-
-y_input = []
-for i in range(int(option_y)):
-	y_input.append(input('Choose y-axis data: '))
-'''
 
 
-y_input = set()
-while True: # energy_bin != 'done':
-	option_bin = input('Enter y-axis data then "done" or "all": ').lower()
-	if option_bin != 'done':
-		if option_bin == 'all':
-			for i in data_df.columns:
-				if isinstance(data_df[f'{i}'][0], str) == False:
-					y_input.add(f'{i}')
 
+	x_input = input('Choose x-axis data: ').lower()
+	
+	
+	print(f'\n{"="*40}\n{"=" + "Y".center(38," ") + "="}\n{"="*40}')
+	
+	
+	data_set_count = 1
+	for i in data_df.columns:
+		if isinstance(data_df[f'{i}'][0], str) == False:
+				print(str(data_set_count) + '. ' + str(i))
+				data_set_count += 1
+	
+	print(f'{"="*40}')
+	
+	'''
+	option_y = input('Enter number of y-data: ')
+	
+	y_input = []
+	for i in range(int(option_y)):
+		y_input.append(input('Choose y-axis data: '))
+	'''
+	
+	
+	y_input = set()
+	while True: # energy_bin != 'done':
+		option_bin = input('Enter y-axis data then "done" or "all": ').lower()
+		if option_bin != 'done':
+			if option_bin == 'all':
+				for i in data_df.columns:
+					if isinstance(data_df[f'{i}'][0], str) == False:
+						y_input.add(f'{i}')
+	
+				break
+			
+			elif len(y_input) < data_set_count:
+				y_input.add(option_bin)
+	
+				'''
+				if len(option_bin_set) > 4:
+					print('SELECTION ERROR: Only 4 datasets are allowed per canvas.')
+					sys.exit(0)
+				'''
+		elif option_bin == 'done':
 			break
-		
-		elif len(y_input) < data_set_count:
-			y_input.add(option_bin)
-
-			'''
-			if len(option_bin_set) > 4:
-				print('SELECTION ERROR: Only 4 datasets are allowed per canvas.')
-				sys.exit(0)
-			'''
-	elif option_bin == 'done':
-		break
-
-y_input = list(y_input)
-
-
-if x_input == y_input:
-	print('SELECTION ERROR: Only unique column data may be chosen.')
-	sys.exit(0)
-
-
-data_df.set_index(f'{x_input}').plot(y=y_input,marker="o", rot=45, grid=True, figsize=(11,7)) # data_df[f'{y_input}']
-
-
-
-#plt.plot(data_df[f'{x_input}'], data_df[f'{y_input}'], 'o')
-
-plt.xlabel(f'{x_input}', fontname='Arial', fontsize=12)
-plt.ylabel(f'{y_input}', fontname='Arial', fontsize=12)
-
-# data_df.plot(rot=45) #kind='bar',alpha=0.75, rot=0)
- #, horizontalalignment='center')
-# plt.setp(ax.xaxis.get_majorticklabels(), rotation=0, horizontalalignment='center')
-plt.tight_layout()
-plt.show()
+	
+	y_input = list(y_input)
+	
+	
+	if x_input == y_input:
+		print('SELECTION ERROR: Only unique column data may be chosen.')
+		sys.exit(0)
+	
+	
+	data_df.set_index(f'{x_input}').plot(y=y_input,marker="o", rot=45, grid=True, figsize=(11,7)) # data_df[f'{y_input}']
+	
+	
+	
+	#plt.plot(data_df[f'{x_input}'], data_df[f'{y_input}'], 'o')
+	
+	plt.xlabel(f'{x_input}', fontname='Arial', fontsize=12)
+	plt.ylabel(f'{y_input}', fontname='Arial', fontsize=12)
+	
+	# data_df.plot(rot=45) #kind='bar',alpha=0.75, rot=0)
+	 #, horizontalalignment='center')
+	# plt.setp(ax.xaxis.get_majorticklabels(), rotation=0, horizontalalignment='center')
+	plt.tight_layout()
+	plt.show()
 
 
 # if (x_input == 'lat' and y_input == 'long') or (y_input == 'lat' and x_input == 'long') or :
-option_map = input('Plot latitude and longitude projection? (yes or no): ')
+'''
+option_map = input('Plot latitude and longitude projection? (yes or no): ') # for testing commment this line until projections are complete
 if option_map == 'yes':
-
-
-	''' # Basemap solution
+'''
+if plot_choice == 'map':
+	# ======= Projection (Basemap solution) # deprecated, but kept for reference when building cartopy solution
+	'''
 	from mpl_toolkits.basemap import Basemap
 	from matplotlib.pyplot import cm
 
@@ -263,6 +272,38 @@ if option_map == 'yes':
 
 	plt.show()
 	'''
+	# ======= Projection (cartopy solution)
+	import cartopy.crs as ccrs
+	from cartopy.mpl.gridliner import LONGITUDE_FORMATTER, LATITUDE_FORMATTER
+	from matplotlib.pyplot import cm
+
+	proj_choice = ccrs.PlateCarree() # Mollweide is the closest to aitoff
+
+	plt.figure(figsize=(10,6))
+	ax = plt.axes(projection=proj_choice) # PlateCarree and Mercator have functioning gridlines
+	ax.stock_img()
+	plt.title('Plate Carree Projection')
+
+	
+	gl = ax.gridlines(crs=ccrs.PlateCarree(), draw_labels=True, zorder=2)
+	gl.xlabels_top = False
+	gl.xformatter = LONGITUDE_FORMATTER
+	gl.yformatter = LATITUDE_FORMATTER
+	
+
+	#plt.plot([ny_lon, delhi_lon], color='gray', transform=ccrs.PlateCarree())
+
+
+	color_cm=iter(cm.viridis(np.linspace(0,1, len(data_df))))
+
+	for i in range(len(data_df)):
+		color_choice = next(color_cm)
+
+		plt.plot(list(data_df['long'])[i],list(data_df['lat'])[i], 'o', color='red', transform=ccrs.Geodetic(), markersize=2, zorder=3)
+		plt.plot([list(data_df['city_long_in'])[i],list(data_df['city_long_out'])[i]] , [list(data_df['city_lat_in'])[i],list(data_df['city_lat_out'])[i]] , color=color_choice, linewidth=1,marker='o', markersize=1, transform=ccrs.Geodetic(), zorder=4) # , marker='.'
+
+
+	plt.show()
 
 
 

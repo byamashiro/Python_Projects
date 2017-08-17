@@ -64,6 +64,7 @@
     - [x] Make points for the coordinates in the datafile (8/10/2017)
   - [x] Create a flight trajectory from cityin to cityout (8/15/2017)
     - [ ] Fix trajectories on limb intersections
+    - [ ] Put a thing to make sure that the same airport can't be city_in/city_out
 
 
 # Current Errors and Pressing Tasks
@@ -71,6 +72,7 @@
 ### Remake projection with the 'cartopy' module
 - The basemap module is now deprecated and will be ended with python 2.7. In this case, the 'cartopy' module will be used in place of basemap. Problems of basemap will be merged with this task since the cartopy module rectifies the basemap plot limitation for great circles.
 - The basemap module runs into a few complications when a trajectory intersects the projection limb. Instead of a trajectory resuming on the other limb, a horizontal line is generated from one limb to the other, and then the trajectory is resumed.
+
 
 ### Plot input sequence
 - Implement a feature to skip initial plotting and skip to the projection plotting.
@@ -242,8 +244,13 @@ Enter y-axis data then "done" or "all": done
 Plot latitude and longitude projection? (yes or no): yes  
 
 
+
 <img src="output/test_plot.png" width="600">
-<img src="output/test_projection.png" width="600">
+<img src="output/test_projection_cartopy.png" width="600">
+
+
+<img src="output/test_projection_basemap.png" width="600">
+
 
 
 
