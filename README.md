@@ -57,21 +57,21 @@
 
 - [ ] Plot data with matplotlib
   - [ ] Input scheme of all data columns
-    - [ ] fname : payload
-    - [ ] datetime : payload
+    - [x] fname : payload (8/17/2017)
+    - [x] datetime : payload  (8/17/2017)
     - [ ] subplot with all preceding plots
   - [x] Make Hammer projection for latitude and longitude values (8/10/2017)
     - [x] Make points for the coordinates in the datafile (8/10/2017)
   - [x] Create a flight trajectory from cityin to cityout (8/15/2017)
-    - [ ] Fix trajectories on limb intersections
-    - [ ] Put a thing to make sure that the same airport can't be city_in/city_out
+    - [x] Fix trajectories on limb intersections (8/17/2017)
+    - [ ] Put a statement to make sure that the same airport can't be city_in/city_out
 
 
 # Current Errors and Pressing Tasks
 
-### Remake projection with the 'cartopy' module
-- The basemap module is now deprecated and will be ended with python 2.7. In this case, the 'cartopy' module will be used in place of basemap. Problems of basemap will be merged with this task since the cartopy module rectifies the basemap plot limitation for great circles.
-- The basemap module runs into a few complications when a trajectory intersects the projection limb. Instead of a trajectory resuming on the other limb, a horizontal line is generated from one limb to the other, and then the trajectory is resumed.
+### Plot script subplots
+- Devise same subplot system from [pandas_test_omni.py](https://github.com/byamashiro/Research_Projects/blob/master/Scripts/pandas_test_omni.py).
+- Change vertical spacing to account for different x-axis.
 
 
 ### Plot input sequence
@@ -356,6 +356,12 @@ Deprecated [scripts](https://github.com/byamashiro/Python_Projects/tree/master/d
 
 
 # Resolved Errors
+
+### Remake projection with the 'cartopy' module (8/17/2017)
+* **Resolution**: The cartopy module allowed for plotting with the Platte Carree projection. Issues with limb interaction were correctly fixed with cartopy. Minor aesthetic problems occur when using the great circle, where the trajectories are not smooth (possible correction using 'spline' or increasing sample size (GNUplot solution)).
+- The basemap module is now deprecated and will be ended with python 2.7. In this case, the 'cartopy' module will be used in place of basemap. Problems of basemap will be merged with this task since the cartopy module rectifies the basemap plot limitation for great circles.
+- The basemap module runs into a few complications when a trajectory intersects the projection limb. Instead of a trajectory resuming on the other limb, a horizontal line is generated from one limb to the other, and then the trajectory is resumed.
+
 
 ### Cityin and Cityout data columns (8/15/2017)
 * **Resolution**: New airport data was used to accurately represent specified airports and the respective cities and countries. Instead of parsing off of countries like the previous code, the 'Airport_ID' was used. This was because the IDs are unique integer values, whereas there could be multiple representations of countries.
