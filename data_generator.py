@@ -195,7 +195,17 @@ dg_df['city_lat_in'] = cit_lat
 dg_df['city_long_in'] = cit_long
 
 # ======= country out
+
 dg_df['Apt_ID_out'] = np.random.choice(apt_data['Airport_ID'], int(no_lines))
+
+for i in range(len(dg_df)):
+	while True:
+		if dg_df['Apt_ID_out'][i] == dg_df['Apt_ID_in'][i]:
+			dg_df['Apt_ID_out'][i] = np.random.choice(apt_data['Airport_ID'], int(no_lines))
+		else:
+			break
+
+
 
 apt_data.set_index('Airport_ID',drop=False, inplace=True)
 
@@ -214,6 +224,9 @@ dg_df['country_out'] = cit_country
 dg_df['city_out'] = cit_cap
 dg_df['city_lat_out'] = cit_lat
 dg_df['city_long_out'] = cit_long
+
+
+
 
 
 
