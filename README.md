@@ -130,7 +130,7 @@ ValueError: setting an array element with a sequence.
 ### CDF writer stopped working
 - There is an index error that is stopping the write of each column. It was the case that there cannot be floats loaded into a column of CDF, but even int/float are being rejected  
 
-```...The dtime column was not added to the output CDF file...```
+```...The dtime column was not added to the output CDF file...```  
 ```IndexError: in the future, 0-d boolean arrays will be interpreted as a valid boolean index```  
 
 
