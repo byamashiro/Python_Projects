@@ -64,10 +64,75 @@
     - [x] Make points for the coordinates in the datafile (8/10/2017)
   - [x] Create a flight trajectory from cityin to cityout (8/15/2017)
     - [x] Fix trajectories on limb intersections (8/17/2017)
-    - [ ] Put a statement to make sure that the same airport can't be city_in/city_out
+    - [x] Put a statement to make sure that the same airport can't be city_in/city_out (8/18/2017)
 
 
 # Current Errors and Pressing Tasks
+
+### Strange error when using large number of lines
+- Recreate situation using [data_generator_noinput.py](https://github.com/byamashiro/Python_Projects/blob/master/data_generator.py) by using a total of 10000 lines. Possibility that there is a duplicate string even with the for loop to stop this interaction for 'Apt_ID_in' and 'Apt_ID_out'.  
+
+```python
+/Users/bryanyamashiro/Documents/Python_Projects/data_generator_noinput.py:210: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+  dg_df['Apt_ID_out'][i] = np.random.choice(apt_data['Airport_ID'], int(no_lines))
+---------------------------------------------------------------------------
+KeyError                                  Traceback (most recent call last)
+/Users/bryanyamashiro/miniconda3/envs/classUHenv/lib/python3.6/site-packages/pandas/core/series.py in _set_with_engine(self, key, value)
+    777         try:
+--> 778             self.index._engine.set_value(values, key, value)
+    779             return
+
+pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.set_value (pandas/_libs/index.c:4649)()
+
+pandas/_libs/index.pyx in pandas._libs.index.IndexEngine.set_value (pandas/_libs/index.c:4475)()
+
+pandas/_libs/index.pyx in pandas._libs.index.DatetimeEngine.get_loc (pandas/_libs/index.c:9756)()
+
+pandas/_libs/index.pyx in pandas._libs.index.IndexEngine._get_loc_duplicates (pandas/_libs/index.c:5394)()
+
+KeyError: 9049
+
+During handling of the above exception, another exception occurred:
+
+...
+
+ValueError                                Traceback (most recent call last)
+/Users/bryanyamashiro/Documents/Python_Projects/data_generator_noinput.py in <module>()
+    208         while True:
+    209                 if dg_df['Apt_ID_out'][i] == dg_df['Apt_ID_in'][i]:
+--> 210                         dg_df['Apt_ID_out'][i] = np.random.choice(apt_data['Airport_ID'], int(no_lines))
+    211                 else:
+    212                         break
+
+/Users/bryanyamashiro/miniconda3/envs/classUHenv/lib/python3.6/site-packages/pandas/core/series.py in __setitem__(self, key, value)
+    769         # do the setitem
+    770         cacher_needs_updating = self._check_is_chained_assignment_possible()
+--> 771         setitem(key, value)
+    772         if cacher_needs_updating:
+    773             self._maybe_update_cacher()
+
+/Users/bryanyamashiro/miniconda3/envs/classUHenv/lib/python3.6/site-packages/pandas/core/series.py in setitem(key, value)
+    726                         not self.index.inferred_type == 'integer'):
+    727 
+--> 728                     values[key] = value
+    729                     return
+    730                 elif key is Ellipsis:
+
+ValueError: setting an array element with a sequence.
+
+...
+
+```
+
+### CDF writer stopped working
+- There is an index error that is stopping the write of each column. It was the case that there cannot be floats loaded into a column of CDF, but even int/float are being rejected  
+```python
+...The dtime column was not added to the output CDF file...```  
+```IndexError: in the future, 0-d boolean arrays will be interpreted as a valid boolean index```  
+
 
 ### Plot script subplots
 - Devise same subplot system from [pandas_test_omni.py](https://github.com/byamashiro/Research_Projects/blob/master/Scripts/pandas_test_omni.py).
@@ -101,8 +166,14 @@ Columns         |   DataFrame Column Name  | Format | Notes
 **payload**     |   payload       | random integer                | A random integer from 0-1000000.
 **day of year** |   doy           | integer following datetime format    | Integer of a day with respect to a specified year
 **unix time**   |   unix_time     | float following datetime format    |  Epoch time of number of seconds since January 1, 1970
-**country**     |   country_in,country_out | random string | Loaded random country string that represents a specific airport.
-**city**     |    | random string | Loaded random city string that represents a specific airport.
+**airport ID**   |   Apt_ID_in,Apt_ID_out     | random integer    |  A randomly chosen integer out of a list of integers that correspond to a specific airport
+**country**     |   country_in,country_out | random string | Loaded random country string that represents a specific airport and airport ID.
+**city**     |  city_in,city_out  | random string | Loaded random city string that represents a specific airport and airport ID.
+**city latitude**     |  city_lat_in,city_lat_out  | formatted float | Loaded corresponding airport latitude with respect to the random airport ID
+**city longitude**     |  city_long_in,city_long_out  | formatted float | Loaded corresponding airport longitude with respect to the random airport ID
+
+
+
 
 
 
@@ -118,18 +189,19 @@ Module       | Submodule(s) | as | Uses
 ------------ | ------------- | ------------- | -------------
 **pandas**              | -                | pd          | DataFrames, indexing, plotting, downloading http url data, csv_reader()
 **numpy**               | -                | np          | NaN values
-~~**spacepy**~~             | pycdf            | -           | Reading Common Data Format
-~~**urllib**~~              | error            | -           | For HTTPError recognition
 **random**              | -                | -           | Randomizer for random colors
-~~**matplotlib**~~          | .pyplot, .mdates | plt, mdates | Plotting, subplots, date formatting
+**matplotlib**          | .pyplot, .mdates, cm | plt, mdates | Plotting, subplots, date formatting, color map pool for 'rainbow' and 'viridis' schemes
 **datetime**            | -                | -           | Datetime indexing, datetime strings, datetime conversion from strings
 **sys**                 | -                | -           | Exiting script
-~~**wget**~~                | -                | -           | Downloading files online (.cdf, .csv, .ascii, .txt)
-~~**os**~~                  | -                | -           | Remove files through script
-**geopy.geocoders**     | Nominatim        | -           | Enables realtime verification of given latitudes and longitudes
+**geopy.geocoders**     | Nominatim        | -           | Enables real-time verification of given latitudes and longitudes
 **json**     | -        | -           | Allows for previewing data in .json format
 **mpl_toolkits**     | Basemap        | -           | Allows for previewing data in .json format
-
+**cartopy**     | cartopy.crs        | ccrs           | Module to plot Platte Carree projections and flight trajectories
+**cartopy.mpl.gridliner**     |  LONGITUDE_FORMATTER, LATITUDE_FORMATTER       | -           | Enables formatting of latitudes and longitudes in (+/-) to more intuitive (N,S,E,W) degrees
+~~**wget**~~                | -                | -           | Downloading files online (.cdf, .csv, .ascii, .txt)
+~~**os**~~                  | -                | -           | Remove files through script
+~~**spacepy**~~             | pycdf            | -           | Reading Common Data Format
+~~**urllib**~~              | error            | -           | For HTTPError recognition
 
 
 
@@ -139,6 +211,14 @@ Module       | Submodule(s) | as | Uses
 
 ## Data Generator ([data_generator_script](https://github.com/byamashiro/Python_Projects/blob/master/data_generator.py))
 The script reads data from three external data files, located in the [data folder](https://github.com/byamashiro/Python_Projects/tree/master/data). Names are pulled from the [first](https://github.com/byamashiro/Python_Projects/blob/master/data/CSV_Database_of_First_Names.csv) and [last](https://github.com/byamashiro/Python_Projects/blob/master/data/CSV_Database_of_Last_Names.csv) name data files and randomly pushed into the respective name columns. The email address are generated with the first character of the first name, the full last name, and a randomly selected domain name from the [domain data file](https://github.com/byamashiro/Python_Projects/blob/master/data/free_email_provider_domains.txt).  
+
+### Current lines-size estimations
+Lines       | Time to generate [s] | File size [.csv] | Notes
+------------ | ------------- | ------------- | -------------
+10              | 0.13                | 3 KB          | Elapsed Time: 0.13 seconds ```CDF Reader is currently not functional.```
+100              | 0.18                | 25 KB          | Elapsed Time: 0.18 seconds ```CDF Reader is currently not functional.```
+1000              | 0.73                | 244 KB          | Elapsed Time: 0.73 seconds ```CDF Reader is currently not functional.```
+10000               | 5.4                | 2.4 MB          | Elapsed Time: 5.4 seconds ```CDF Reader is currently not functional.```
 
 
 In [180]: **run data_generator.py**  
@@ -247,6 +327,8 @@ Plot latitude and longitude projection? (yes or no): yes
 
 <img src="output/test_plot.png" width="600">
 <img src="output/test_projection_cartopy.png" width="700">
+<img src="output/test_projection_cartopy_multi.png" width="700">
+
 
 #### Deprecated basemap module projection
 <img src="output/test_projection_basemap.png" width="700">

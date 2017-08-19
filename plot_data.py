@@ -4,11 +4,11 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import datetime
 import sys
-import wget
+# import wget
 import os
 import random
-from spacepy import pycdf
-from urllib import error
+# from spacepy import pycdf
+# from urllib import error
 
 
 
@@ -160,7 +160,7 @@ if 'map' in plotter_choice:
 	plt.figure(figsize=(10,6))
 	ax = plt.axes(projection=proj_choice) # PlateCarree and Mercator have functioning gridlines
 	ax.stock_img()
-	plt.title('Plate Carree Projection')
+	plt.title(f'Plate Carree Projection [{len(data_df)} flights]')
 
 	
 	gl = ax.gridlines(crs=ccrs.PlateCarree(), draw_labels=True, zorder=2)

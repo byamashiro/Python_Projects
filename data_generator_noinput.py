@@ -10,11 +10,14 @@ import os
 
 
 
+
 # ============== Data generator
 print(f'{"="*40}\n{"=" + "Data Generator".center(38," ") + "="}\n{"="*40}')
 
 no_lines = input('Enter desired number of lines: ')
 #no_lines = '20'
+
+#%%time
 
 #dg_df = pd.DataFrame([])
 start_timer = time.clock()
@@ -39,7 +42,7 @@ print('[x] Names generated.')
 
 # =============  Datetime Column
 # Uncomment when program is complete
-start_date = input('Enter a start date (yyyymmdd): ')
+start_date = '' # input('Enter a start date (yyyymmdd): ')
 if start_date == '':
 	start_date = '20120307'
 	end_date = '20120310'
@@ -123,7 +126,7 @@ loc_list = []
 lat_list = []
 long_list = []
 
-latlong_check = input('Check Latitude and Longitude (yes or no) - use "no" for time saving: ')
+latlong_check = 'no' # input('Check Latitude and Longitude (yes or no) - use "no" for time saving: ')
 
 if latlong_check == 'yes':
 	while True:
@@ -362,7 +365,7 @@ print('=' * 40)
 corr_bin_set = set()
 
 while True: # energy_bin != 'done':
-	corr_bin = input('Enter Corruption Option(s) then "done" or "all" or "none": ').lower() #  or "all"
+	corr_bin = 'none' # input('Enter Corruption Option(s) then "done" or "all" or "none": ').lower() #  or "all"
 	if corr_bin == 'none':
 		print('No corruption generated.')
 		break
@@ -445,7 +448,7 @@ print(f'{"="*40}\n{"=" + "Output Options".center(38," ") + "="}\n{"="*40}\n1 - C
 
 option_bin_set = set()
 while True: # energy_bin != 'done':
-	option_bin = input('Enter Output Option(s) then "done" or "none": ').lower() #  or "all"
+	option_bin = 'all' # input('Enter Output Option(s) then "done" or "none": ').lower() #  or "all"
 	if option_bin == 'none':
 		print('No outputs generated.')
 		break
@@ -480,7 +483,7 @@ output_name = 'data_sample'
 
 # ======= output to csv
 if '1' in option_bin_set:
-	delim_opt = input('Choose delimiter character for .csv output: ')
+	delim_opt = ',' # input('Choose delimiter character for .csv output: ')
 	dg_df.to_csv(f'output/{output_name}.csv', sep=f'{delim_opt}', index=False)
 	print('[x] Output as CSV generated.')
 # ======= output to ascii
@@ -511,7 +514,7 @@ if '5' in option_bin_set:
 # ======= output to cdf
 
 if '6' in option_bin_set:
-	print('CDF Writer is currently not functional.')
+	print('CDF Reader is currently not functional.')
 	'''
 	os.remove(f'output/{output_name}.cdf')
 	from spacepy import pycdf
@@ -523,6 +526,8 @@ if '6' in option_bin_set:
 			cdf[i] = dg_df[i]
 		except ValueError as val_err:
 			print(f'The {i} column was not added to the output CDF file.')
+		except IndexError as ind_err:
+			print(f'The {i} column was not added to the output CDF file.')
 		else:
 			print(f'The {i} column was not added to the output CDF file.')
 	#cdf['date_time'] = dg_df['dtime']
@@ -533,6 +538,9 @@ if '6' in option_bin_set:
 	'''
 
 
+
+end_timer = time.clock()
+print(f'Elapsed Time: {round(end_timer - start_timer , 2)} seconds')
 
 
 # ======== check if script works
